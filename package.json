@@ -12,6 +12,7 @@
     "react-dom": "^16.13.1",
     "react-firebase-hooks": "^2.1.1",
     "react-onboarding": "^1.1.18",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
