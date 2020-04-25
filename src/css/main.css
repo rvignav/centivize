@@ -54,3 +54,7 @@ button:active {
 .post .card-body {
   padding: 1em;
 }
+
+.post button {
+  font-size: 1em
+}
