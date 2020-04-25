@@ -13,6 +13,7 @@ import Home from '../components/Home';
 import Search from '../components/Search';
 import Post from '../components/Post';
 import Profile from '../components/Profile';
+import Location from '../components/Location';
 import Footer from '../components/Footer';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/app/search" component={Search} />
           <Route path="/app/post" component={Post} />
           <Route path="/app/profile" component={Profile} />
+          <Route path="/app/location" component={Location} />
           <Redirect to="/app/home" />
         </Switch>
         <Footer />
