@@ -10,14 +10,18 @@ export class ListCard extends Component {
 
     render() {
         return (
-            <div key={this.props.post.id} className="card-body mb-2 m-0 w-100 post shadow">
-                <h4>{this.props.post.title}</h4>
-                <h5>{this.props.post.name}</h5>
-                <p>{this.props.post.intro}</p>
-                <button className="btn-sm btn-primary mr-2" >Help {this.props.post.name}</button>
-                <button id={"collapseButton" + this.props.post.id} className="btn-sm btn-secondary" onClick={() => this.toggleCollapsed(this.props.post.id)}>Learn more</button>
-                <div style={{ display: "none", paddingTop: "1em" }} id={"collapseInfo" + this.props.post.id}>
-                    {this.props.post.info}
+            <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
+                <div className="card-header">
+                    <h4>{this.props.post.title}</h4>
+                    <h5>{this.props.post.name}</h5>
+                </div>
+                <div className="card-body">
+                    <p>{this.props.post.intro}</p>
+                    <button className="btn-sm btn-primary mr-2" >Help {this.props.post.name}</button>
+                    <button id={"collapseButton" + this.props.post.id} className="btn-sm btn-secondary" onClick={() => this.toggleCollapsed(this.props.post.id)}>Learn more</button>
+                    <div style={{ display: "none", paddingTop: "1em" }} id={"collapseInfo" + this.props.post.id}>
+                        {this.props.post.info}
+                    </div>
                 </div>
             </div>
         )
