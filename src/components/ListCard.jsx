@@ -8,6 +8,7 @@ export class ListCard extends Component {
                 <h5>{this.props.post.name}</h5>
                 <p>{this.props.post.info}</p>
                 <button className="btn-sm btn-primary mr-2" >Help {this.props.post.name}</button>
+                <button className="btn-sm btn-secondary" data-toggle="collapse">Learn more</button>
                 <div id="collapseInfo">
                         {this.props.post.fullPostInfo}
                 </div>

@@ -5,10 +5,15 @@
   padding-bottom: 1em;
 }
 
-.search-lower {
+.search-lower, .home-main {
   padding-top: 1em;
   padding-bottom: 4em;
 }
+
+.home-main {
+  padding-top: 4.5em;
+}
+
 
 /* header styles */
 header {
