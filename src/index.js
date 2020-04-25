@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 import './css/bootstrap.css';
 import './css/main.css';
 
-import Routes from './Routes';
+import App from "./pages/App"
 
 ReactDOM.render(<App />, document.getElementById('root'));
