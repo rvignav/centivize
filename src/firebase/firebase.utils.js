@@ -20,8 +20,22 @@ const auth = firebase.auth(app);
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+const emailProvider = new firebase.auth.EmailAuthProvider();
+
+// const microsoftProvider = new firebase.auth.OAuthProvider('microsoft.com');
+
 const db = firebase.firestore();
 
-export { config, app, auth, googleProvider, db };
+export {
+  config,
+  app,
+  auth,
+  googleProvider,
+  facebookProvider,
+  emailProvider,
+  db,
+};
 
 export default firebase;
