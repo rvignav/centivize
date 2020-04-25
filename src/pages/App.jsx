@@ -19,9 +19,9 @@ import Footer from '../components/Footer';
 const App = () => {
   const [user] = useAuthState(auth);
 
-  if (!user) {
-    return <Redirect to="/app/onboarding" />;
-  }
+  // if (!user) {
+  //   return <Redirect to="/app/onboarding" />;
+  // }
 
   // const isOnboarding = useRouteMatch('/app/:slug') === 'onboarding';
 
