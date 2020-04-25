@@ -16,11 +16,11 @@ import Profile from '../components/Profile';
 import Footer from '../components/Footer';
 
 const App = () => {
-  // const [user, initializing] = useAuthState(auth);
+  const [user, initializing] = useAuthState(auth);
 
-  // if (!initializing && !user) {
-  //   return <Redirect to="/onboarding" />;
-  // }
+  if (!initializing && !user) {
+    return <Redirect to="/onboarding" />;
+  }
 
   return (
     <Router>
