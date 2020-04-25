@@ -7,6 +7,7 @@ button {
     border: 0;
     padding: 0.8rem;
     background-color: #fff;
+    color: #555555;
 }
 
 button:hover, button:active {
