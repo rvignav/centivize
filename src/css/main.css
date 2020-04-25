@@ -1,3 +1,14 @@
+/* search styles */
+/* search upper */
+.search-upper {
+  background-color: #eee;
+  padding-bottom: 4em;
+}
+
+.search-lower {
+  margin-top: -3em;
+}
+
 /* header styles */
 header {
   box-shadow: 0px 2px 5px #ccc;
