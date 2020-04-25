@@ -19,9 +19,9 @@ const Landing = () => {
             Get started
           </Button>{' '}
         </Link>
-        <Link to="/login">
+        <Link to="/signin">
           <Button variant="secondary" size="lg">
-            Login
+            Sign in
           </Button>
         </Link>
       </div>
