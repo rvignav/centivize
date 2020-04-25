@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import Footer from "../components/Footer"
+
+import Header from "../components/Header"
 
 export class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home page</h1>
+                <Header />
             </div>
         )
     }

@@ -1,3 +1,8 @@
+/* header styles */
+header {
+  box-shadow: 0px 2px 5px #ccc;
+}
+
 /* footer styles */
 footer {
   box-shadow: 0px -2px 5px #ccc;
