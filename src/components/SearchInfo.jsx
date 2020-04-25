@@ -9,16 +9,16 @@ export class SearchInfo extends Component {
     }
     render() {
         let sortBy = this.props.sort;
-        let dateNames = "btn mr-1 "
+        let dateNames = "sort btn mr-1 "
         dateNames += sortBy == "date" ? "btn-primary" : "btn-outline-primary"
-        let distanceNames = "btn mr-1 "
+        let distanceNames = "sort btn mr-1 "
         distanceNames +=  sortBy == "distance" ? "btn-primary" : "btn-outline-primary"
-        let popularityNames = "btn "
+        let popularityNames = "sort btn "
         popularityNames += sortBy == "popularity" ? "btn-primary" : "btn-outline-primary"
 
         return (
             <div>
-                <SearchBar />
+                <SearchBar filterTextUpdate={this.props.filterTextUpdate} />
                 <div className="row text-center">
                     <div className="col-md-12 pt-2">
                         <b className="mr-1">Sort by: </b>

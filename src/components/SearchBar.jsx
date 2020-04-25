@@ -10,7 +10,7 @@ export class SearchBar extends Component {
                             <div className="col-md-12">
                                 <form className="form-inline" action="/search" acceptCharset="UTF-8" method="get">
                                     <div className="input-group flex-fill">
-                                        <input type="search" name="search" id="search" placeholder="Search..." className="form-control" aria-label="Search this site " />
+                                        <input onChange={e => this.props.filterTextUpdate(e.target.value)} type="search" name="search" id="search" placeholder="Search..." className="form-control" aria-label="Search this site " />
                                         <div className="input-group-append">
                                             <input type="button" name="commit" defaultValue="Search" className="btn btn-primary" data-disable-with="Search" />
                                         </div>

@@ -8,7 +8,7 @@ import dummyData from "../DUMMY"
 export class Search extends Component {
     constructor() {
         super()
-        const posts = dummyData;
+        let posts = this.loadPosts()
         this.state = {
             sort: "date",
             filterText: "",
@@ -16,16 +16,32 @@ export class Search extends Component {
         }
     }
 
+    loadPosts = () => {
+        return dummyData;
+    }
+
     toggleSetting = (setting) => {
         this.setState({ sort: setting })
-        console.log("currently sorted by: " + this.state.sort)
+    }
+
+    filterTextUpdate = text => {
+        this.setState({ filterText: text })
+        this.sortPosts()
+    }
+
+    sortPosts = () => {
+        let postList = this.loadPosts()
+        var newPostList = postList.filter(post => {
+            return post.title == this.state.filterText
+        })
+        this.setState({ posts: newPostList })
     }
 
     render() {
         return (
             <div>
                 <div className="container-fluid search-upper">
-                    <SearchInfo sort={this.state.sort} toggleSetting={this.toggleSetting} />
+                    <SearchInfo sort={this.state.sort} toggleSetting={this.toggleSetting} filterTextUpdate={this.filterTextUpdate} />
                 </div>
                 <div className="container-fluid search-lower">
                     <PostFeed posts={this.state.posts} />

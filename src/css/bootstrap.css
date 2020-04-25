@@ -8973,3 +8973,9 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+/* CUSTOM CSS */
+.sort {
+  font-size: 0.7em;
+  padding: 0.5em 0.7em;
+}
