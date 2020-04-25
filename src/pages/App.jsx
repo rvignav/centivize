@@ -30,6 +30,7 @@ const App = () => {
           <Route path="/app/search" component={Search} />
           <Route path="/app/post" component={Post} />
           <Route path="/app/profile" component={Profile} />
+          <Redirect to="/app/home" />
         </Switch>
         <Footer />
       </div>
