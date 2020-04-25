@@ -35,3 +35,8 @@ button:hover,
 button:active {
   background-color: #eeeeee;
 }
+
+
+.sort {
+  padding: 0.5em;
+}
