@@ -1,1 +1,3 @@
-npm start
+# hack-now
+
+Our submission to hack:now
