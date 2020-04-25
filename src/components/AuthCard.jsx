@@ -27,17 +27,17 @@ const uiConfig = {
 const AuthCardStyles = styled.div`
   box-shadow: 0 5px 5px 0 rgba(154, 160, 185, 0.05),
     0 5px 30px 0 rgba(166, 173, 201, 0.22);
-  width: 30rem;
+  width: 300px;
   margin: 0 auto;
-  padding: 2rem 0;
-  border-radius: 0.8rem;
+  padding: 20px 0;
+  border-radius: 8px;
 `;
 
 const SignInTitle = styled.h2`
   font-weight: normal;
-  font-size: 1.4rem;
-  padding: 0 0 0 4rem;
-  margin-top: 1.5rem;
+  font-size: 14px;
+  padding: 0 0 0 40px;
+  margin-top: 15px;
 `;
 
 const AuthCard = () => (
