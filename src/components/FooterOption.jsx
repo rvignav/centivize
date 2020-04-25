@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { FaHome, FaSearch, FaPlusCircle, FaListAlt } from 'react-icons/fa';
+
+import { Link } from "react-router-dom";
 
 export class FooterOption extends Component {
   render() {
     return (
       <div className="col">
-        <button className="h-100 w-100">{this.props.icon}</button>
+        <Link to={`/app/${this.props.pageName}`}>
+          <button className="h-100 w-100">{this.props.icon}</button>
+        </Link>
       </div>
     );
   }

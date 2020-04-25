@@ -8,10 +8,10 @@ export class Footer extends Component {
     return (
       <div className="container-fluid fixed-bottom p-0">
         <footer className="row no-gutters">
-          <FooterOption icon={<FaHome />} />
-          <FooterOption icon={<FaSearch />} />
-          <FooterOption icon={<FaPlusCircle />} />
-          <FooterOption icon={<FaListAlt />} />
+          <FooterOption pageName="home" icon={<FaHome />} />
+          <FooterOption pageName="search" icon={<FaSearch />} />
+          <FooterOption pageName="post" icon={<FaPlusCircle />} />
+          <FooterOption pageName="profile" icon={<FaListAlt />} />
         </footer>
       </div>
     );
