@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
   Redirect,
-  useRouteMatch,
 } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -17,13 +16,11 @@ import Profile from './Profile';
 import Footer from '../components/Footer';
 
 const App = () => {
-  const [user] = useAuthState(auth);
+  const [user, initializing] = useAuthState(auth);
 
-  // if (!user) {
-  //   return <Redirect to="/app/onboarding" />;
+  // if (!initializing && !user) {
+  //   return <Redirect to="/onboarding" />;
   // }
-
-  // const isOnboarding = useRouteMatch('/app/:slug') === 'onboarding';
 
   return (
     <Router>
@@ -34,7 +31,6 @@ const App = () => {
           <Route path="/app/post" component={Post} />
           <Route path="/app/profile" component={Profile} />
         </Switch>
-        {}
         <Footer />
       </div>
     </Router>
