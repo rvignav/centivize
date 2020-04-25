@@ -4,13 +4,21 @@ export class SearchBar extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-md-12">
-                    <form className="form-inline pt-3">
-                        <div className="flex-fill mr-2">
-                            <input type="search" name="" className="form-control w-100" placeholder="Search..." id="textSearchInput" />
+                <div class="col pt-3">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <form className="form-inline" action="/search" acceptCharset="UTF-8" method="get">
+                                    <div className="input-group flex-fill">
+                                        <input type="search" name="search" id="search" defaultValue placeholder="Full-width search form with sticky button" className="form-control" aria-label="Search this site " />
+                                        <div className="input-group-append">
+                                            <input type="submit" name="commit" defaultValue="Search" className="btn btn-primary" data-disable-with="Search" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <button className="btn btn-primary" id="mapListToggle">Map</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         )
