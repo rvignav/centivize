@@ -11,6 +11,7 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-firebase-hooks": "^2.1.1",
+    "react-firebaseui": "^4.1.0",
     "react-icons": "^3.10.0",
     "react-onboarding": "^1.1.18",
     "react-router-dom": "^5.1.2",
