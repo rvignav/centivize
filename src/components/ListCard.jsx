@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class ListCard extends Component {
     render() {
         return (
-            <div key={this.props.post.id} className="card-body shadow-sm mb-2 m-0 w-100 post">
+            <div key={this.props.post.id} className="card-body mb-2 m-0 w-100 post shadow">
                 <h4>{this.props.post.title}</h4>
                 <h5>{this.props.post.name}</h5>
                 <p>{this.props.post.info}</p>

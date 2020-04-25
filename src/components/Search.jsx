@@ -6,17 +6,28 @@ import PostFeed from "../components/PostFeed"
 import dummyData from "../DUMMY"
 
 export class Search extends Component {
-    render() {
+    constructor() {
+        super()
         const posts = dummyData;
+        this.state = {
+            sort: "date",
+            posts: posts
+        }
+    }
 
+    toggleSetting = (setting) => {
+        this.setState({ sort: setting })
+        console.log("currently sorted by: " + this.state.sort)
+    }
 
+    render() {
         return (
             <div>
                 <div className="container-fluid search-upper">
-                    <SearchInfo />
+                    <SearchInfo sort={this.state.sort} toggleSetting={this.toggleSetting} />
                 </div>
                 <div className="container-fluid search-lower">
-                    <PostFeed posts={posts} />
+                    <PostFeed posts={this.state.posts} />
                 </div>
             </div>
         )
