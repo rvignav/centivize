@@ -5,7 +5,7 @@ import ListCard from "../components/ListCard"
 
 export class Search extends Component {
     render() {
-        let posts = [{
+        const posts = [{
             'id': 1,
             'title': 'Need help',
             'name': 'John Doe',
@@ -16,7 +16,17 @@ export class Search extends Component {
             'title': 'Also need help',
             'name': 'Jane',
             'intro': 'I need more help than him'
+        }, 
+        {
+            'id': 3,
+            'title': 'Give me potatoes',
+            'name': 'Dr. Chu',
+            'intro': 'Please'
         }];
+
+        const postElements = posts.map(post => {
+            return <ListCard post={post} />
+        })
 
         return (
             <div>
@@ -24,12 +34,7 @@ export class Search extends Component {
                     <SearchInfo />
                 </div>
                 <div className="container-fluid search-lower">
-                    <ListCard post={{
-                        'id': 2,
-                        'title': 'Also need help',
-                        'name': 'Jane',
-                        'intro': 'I need more help than him'
-                    }} />
+                    {postElements}
                 </div>
             </div>
         )
