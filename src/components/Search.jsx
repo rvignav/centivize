@@ -11,6 +11,7 @@ export class Search extends Component {
         const posts = dummyData;
         this.state = {
             sort: "date",
+            filterText: "",
             posts: posts
         }
     }

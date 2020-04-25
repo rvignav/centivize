@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 
 export class ListCard extends Component {
+    toggleCollapsed = (id) => {
+        let button = document.getElementById("collapseButton" + id)
+        button.innerText = button.innerText == "Learn more" ? "Show less" : "Learn more"
+        let info = document.getElementById("collapseInfo" + id)
+        info.style.display = info.style.display == "block" ? "none" : "block"
+    }
+
     render() {
         return (
             <div key={this.props.post.id} className="card-body mb-2 m-0 w-100 post shadow">
                 <h4>{this.props.post.title}</h4>
                 <h5>{this.props.post.name}</h5>
-                <p>{this.props.post.info}</p>
+                <p>{this.props.post.intro}</p>
                 <button className="btn-sm btn-primary mr-2" >Help {this.props.post.name}</button>
-                <button className="btn-sm btn-secondary" data-toggle="collapse">Learn more</button>
-                <div id="collapseInfo">
-                        {this.props.post.fullPostInfo}
+                <button id={"collapseButton" + this.props.post.id} className="btn-sm btn-secondary" onClick={() => this.toggleCollapsed(this.props.post.id)}>Learn more</button>
+                <div style={{ display: "none", paddingTop: "1em" }} id={"collapseInfo" + this.props.post.id}>
+                    {this.props.post.info}
                 </div>
             </div>
         )

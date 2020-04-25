@@ -12,7 +12,7 @@ export class SearchBar extends Component {
                                     <div className="input-group flex-fill">
                                         <input type="search" name="search" id="search" placeholder="Search..." className="form-control" aria-label="Search this site " />
                                         <div className="input-group-append">
-                                            <input type="submit" name="commit" defaultValue="Search" className="btn btn-primary" data-disable-with="Search" />
+                                            <input type="button" name="commit" defaultValue="Search" className="btn btn-primary" data-disable-with="Search" />
                                         </div>
                                     </div>
                                 </form>
