@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { FaHome, FaSearch, FaPlusCircle, FaListAlt } from "react-icons/fa";
+import React, { Component } from 'react';
+import { FaHome, FaSearch, FaPlusCircle, FaListAlt } from 'react-icons/fa';
 
-import FooterOption from "./FooterOption";
+import FooterOption from './FooterOption';
 
 export class Footer extends Component {
   render() {
