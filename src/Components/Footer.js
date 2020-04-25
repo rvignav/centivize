@@ -7,12 +7,12 @@ export class Footer extends Component {
   render() {
     return (
       <div className="container-fluid fixed-bottom p-0">
-        <div className="row no-gutters">
+        <footer className="row no-gutters">
           <FooterOption icon={<FaHome />} />
           <FooterOption icon={<FaSearch />} />
           <FooterOption icon={<FaPlusCircle />} />
           <FooterOption icon={<FaListAlt />} />
-        </div>
+        </footer>
       </div>
     );
   }
