@@ -1,0 +1,8 @@
+button {
+    border: 0;
+    padding: 0.8rem;
+}
+
+button:hover, button:active {
+    background-color: #cccccc;
+}
