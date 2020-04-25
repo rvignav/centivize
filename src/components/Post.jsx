@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, StrictMode } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
 import { db } from '../firebase/firebase.utils.js';
+import diagnose from '../diagnosis.js';
 
 export default class Home extends Component {
     constructor(props) {
@@ -43,17 +44,51 @@ export default class Home extends Component {
     }
 
     handleSubmit(event) {
+        const user = 'user';
         const title = this.state.text;
         const post = this.state.value;
-        alert(`An essay was submitted: ${title} and ${post}`);
+        db.collection(user)
+            .add({
+                title,
+                post,
+            })
+            .then(function () {
+                alert(`Thanks for submitting! Your post has been recorded.`);
+                console.log('DONE');
+                window.location.href = '../app';
+            });
         event.preventDefault();
     }
 
     handleSubmit2(event) {
+        const user = 'user';
         const { gender } = this.state;
         const { year } = this.state;
         const { symptoms } = this.state;
-        alert(`An essay was submitted: ${gender} and ${year} and ${symptoms}`);
+        const s = symptoms.split(', ');
+        for (let i = 0; i < s.length; i++) {
+            s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
+        }
+        diagnose(s, gender, year).then((treatments) => {
+            console.log(treatments);
+            let str = '';
+            for (let i = 0; i < treatments.length; i++) {
+                str += `${treatments[i]} \n`;
+            }
+            console.log(`str: ${str}`);
+            db.collection(user)
+                .add({
+                    title: 'Need treatment help',
+                    post: str,
+                })
+                .then(function () {
+                    alert(`Thanks for submitting! Your post has been recorded.`);
+                    console.log('DONE');
+                    window.location.href = '../app';
+                });
+        });
+
+        // alert(`An essay was submitted: ${gender} and ${year} and ${symptoms}`);
         event.preventDefault();
     }
 

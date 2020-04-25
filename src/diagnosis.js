@@ -1,12 +1,4 @@
-const diagnose = async () => {
-  // NEEDED FROM USER
-
-  const symptoms = ['Neck stiffness', 'Fever'];
-  const gender = 'male';
-  const year = 1984;
-
-  // ------------------------
-
+const diagnose = async (symptoms, gender, year) => {
   const symptomToId = {
     'Abdominal guarding': 188,
     'Abdominal pain': 10,
@@ -760,7 +752,7 @@ const diagnose = async () => {
       }),
     )
   ).map((promise) => promise.value);
-  console.log(treatments);
+  return treatments;
 };
 
-diagnose();
+export default diagnose;
