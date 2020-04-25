@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
-import Search from './Search'
-import Post from './Post'
-import Profile from './Profile'
-import Footer from '../components/Footer'
+import Search from './Search';
+import Post from './Post';
+import Profile from './Profile';
+import Footer from '../components/Footer';
 
 const App = () => (
   <Router>
@@ -19,7 +19,6 @@ const App = () => (
       <Footer />
     </div>
   </Router>
-
 );
 
 export default App;
