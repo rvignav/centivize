@@ -1,15 +1,15 @@
-
 /* footer styles */
 footer {
-    box-shadow: 0px -2px 5px #ccc;
+  box-shadow: 0px -2px 5px #ccc;
 }
 button {
-    border: 0;
-    padding: 0.8rem;
-    background-color: #fff;
-    color: #555555;
+  border: 0;
+  padding: 0.8rem;
+  background-color: #fff;
+  color: #555555;
 }
 
-button:hover, button:active {
-    background-color: #eeeeee;
+button:hover,
+button:active {
+  background-color: #eeeeee;
 }
