@@ -9,10 +9,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '../firebase/firebase.utils';
 
-import Home from './Home';
-import Search from './Search';
-import Post from './Post';
-import Profile from './Profile';
+import Home from '../components/Home';
+import Search from '../components/Search';
+import Post from '../components/Post';
+import Profile from '../components/Profile';
 import Footer from '../components/Footer';
 
 const App = () => {
