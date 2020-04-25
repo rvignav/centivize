@@ -2,12 +2,12 @@
 /* search upper */
 .search-upper {
   background-color: #eee;
-  padding-bottom: 4em;
+  padding-bottom: 1em;
 }
 
 .search-lower {
-  margin-top: -3em;
-  margin-bottom: 4em;
+  padding-top: 1em;
+  padding-bottom: 4em;
 }
 
 /* header styles */
