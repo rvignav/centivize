@@ -13,7 +13,8 @@ import {
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  // Redirect to /signedIn after sign in is successful.
+  // Alternatively you can provide a callbacks.signInSuccess function.
   signInSuccessUrl: '/app',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
