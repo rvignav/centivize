@@ -40,16 +40,15 @@ const Landing = () => {
         </div>
       </header>
       <div className="container text-center pt-5 pb-3">
-        <h1>Community Social Good</h1>
+        <h1>Social Good</h1>
         <p className="lead">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-          ullam?
+          Our centralized upvote-based system rewards volunteers for helping
+          fellow community members.
         </p>
-        <h1>Smart Health Care</h1>
+        <h1>Smart Healthcare</h1>
         <p className="lead">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium,
-          consequatur corporis. Corporis consequuntur veritatis sint molestiae
-          atque a quae necessitatibus nemo!
+          Our fully automated diagnosis feature, compatible with Alexa, allows
+          users to recieve treatment plans without leaving their homes.
         </p>
       </div>
     </>
