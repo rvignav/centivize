@@ -6,6 +6,7 @@ import { usePosition } from 'use-position';
 
 import firebase, { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
+import geofence from '../../geofence.js';
 import { useUid } from '../../hooks/auth.js';
 
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -21,6 +22,18 @@ const Post = () => {
   const watch = true;
   const { latitude, longitude } = usePosition(watch);
   const location = { lat: latitude, lng: longitude };
+
+
+  console.log(geofence(40.5523, 43.3234, 200, "Stores #123", uid));
+  if (latitude) {
+    db.doc(`users/${uid}`)
+      .update({
+        coordinates: new firebase.firestore.GeoPoint(lat, lng),
+      })
+      .then(function () {
+        console.log('DONE');
+      });
+  }
 
   const handleChange = (event) => {
     setValue(event.target.value);
