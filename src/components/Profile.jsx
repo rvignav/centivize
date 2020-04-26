@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
 import SignOutButton from './SignOutButton';
 
 export class Home extends Component {

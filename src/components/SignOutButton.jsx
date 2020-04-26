@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { auth } from '../firebase/firebase.utils';
 
 const SignOutButton = () => {
-  const [isSigningOut, setIsSigningOut] = useState(false);
-  const history = useHistory();
+  const [authState, setAuthState] = useState('signed in');
 
   const signOut = async () => {
-    setIsSigningOut(true);
+    setAuthState('signing out');
     await auth.signOut();
-    const landing = '/';
-    history.push(landing);
+    setAuthState('signed out');
   };
+
+  if (authState === 'signed out') {
+    return <Redirect to="/" />;
+  }
 
   return (
     <Button
       variant="danger"
       onClick={signOut}
       size="lg"
-      disabled={isSigningOut}
+      disabled={authState === 'signing out'}
     >
-      {isSigningOut ? 'Signing out...' : 'Sign out'}
+      {authState === 'signing out' ? 'Signing out...' : 'Sign out'}
     </Button>
   );
 };
