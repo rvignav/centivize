@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SignOutButton from './auth/SignOutButton';
 import Radar from 'radar-sdk-js';
 import { useUid } from '../hooks/auth.js';
@@ -23,7 +23,7 @@ const Profile = () => {
             <img
               className="img-fluid round"
               src={profilePicture}
-              alt="profile picture"
+              alt="profile"
             />
 
           </div>
