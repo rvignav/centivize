@@ -1,6 +1,6 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { useCollection } from 'react-firebase-hooks/firestore';
 
 import SearchInfo from './SearchInfo';
 import PostFeed from '../posts/PostFeed';
@@ -12,17 +12,16 @@ import { db, datab } from '../../firebase/firebase.utils';
 const Search = () => {
   const [sortMethod, setSortMethod] = useState('date');
   const [searchQuery, setSearchQuery] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [postDocs, loadingPostDocs] = useCollection(db.collection('posts'));
+  let posts = [];
 
-  const [postDocs, loadingPostDocs] = useCollectionData(db.collection('posts'));
-
-  // if (!loadingPostDocs) {
-  //   setPosts(
-  //     postDocs.map((postDoc) => {
-  //       console.log(postDoc);
-  //     }),
-  //   );
-  // }
+  if (!loadingPostDocs) {
+    posts = postDocs.docs.map((postDoc) => {
+      const { id } = postDoc;
+      console.log('postDoc', postDoc);
+      return { id, ...postDoc.data() };
+    });
+  }
 
   useEffect(
     () =>

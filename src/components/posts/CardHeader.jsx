@@ -26,7 +26,13 @@ export default class CardHeader extends Component {
               />
             </h4>
             <h5>
-              {this.props.post.name} <small>-{this.props.post.date}</small>
+              {this.props.post.author}
+              {this.props.post.author && ' - '}
+              <small>
+                {this.props.post.timePosted
+                  .toDate()
+                  .toLocaleDateString('en-US')}
+              </small>
             </h5>
           </div>
 
