@@ -17,8 +17,8 @@ export class ListCard extends Component {
                 </div>
                 <div className="card-body">
                     <p>{this.props.post.intro}</p>
-                    <button className="btn-sm btn-primary mr-2" >Help {this.props.post.name}</button>
-                    <button id={"collapseButton" + this.props.post.id} className="btn-sm btn-secondary" onClick={() => this.toggleCollapsed(this.props.post.id)}>Learn more</button>
+                    <button className="btn btn-primary mr-2" >Help {this.props.post.name}</button>
+                    <button id={"collapseButton" + this.props.post.id} className="btn btn-secondary" onClick={() => this.toggleCollapsed(this.props.post.id)}>Learn more</button>
                     <div style={{ display: "none", paddingTop: "1em" }} id={"collapseInfo" + this.props.post.id}>
                         {this.props.post.info}
                     </div>

@@ -18,6 +18,8 @@
 /* header styles */
 header {
   background-color: var(--light);
+  padding: 0.4em;
+  color: var(--primary);
 }
 
 /* footer styles */
@@ -30,13 +32,15 @@ header {
 
 .footer-button:hover,
 .footer-button:active {
+  border: 0;
   background-color: var(--secondary);
 }
 
 .footer-button.current {
   color: var(--primary);
-  border-top: var(--primary) 5px solid;
+  border-top: var(--primary) 0.4em solid;
   background-color: var(--secondary);
+  padding-top: 0.6em;
 }
 
 .sort {
@@ -51,10 +55,6 @@ header {
 .post .card-header h5 {
   margin-bottom: 0;
   font-style: italic;
-}
-
-.post.card {
-  border: 1px solid var(--secondary);
 }
 
 .post .card-body {
