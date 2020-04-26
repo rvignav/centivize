@@ -42,7 +42,7 @@ export class Search extends Component {
     render() {
         return (
             <div>
-                <div className="container search-upper">
+                <div className="container-fluid search-upper">
                     <SearchInfo sort={this.state.sort} toggleSetting={this.toggleSetting} filterTextUpdate={this.filterTextUpdate} />
                 </div>
                 <div className="container search-lower">

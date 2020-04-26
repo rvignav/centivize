@@ -9,7 +9,7 @@ export default function Footer() {
   console.log(path)
 
   return (
-    <div className="container-fluid fixed-bottom p-0">
+    <div className="container-fluid fixed-bottom p-0 menu">
       <footer className="row no-gutters">
         <FooterOption current={path == "/app/home"} pageName="home" icon={<FaHome />} />
         <FooterOption current={path == "/app/search"} pageName="search" icon={<FaSearch />} />
