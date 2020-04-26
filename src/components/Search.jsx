@@ -4,6 +4,8 @@ import SearchInfo from "../components/SearchInfo"
 import PostFeed from "../components/PostFeed"
 
 import dummyData from "../dummyposts"
+import distance from '../distance.js';
+
 
 export class Search extends Component {
     constructor() {
@@ -14,6 +16,10 @@ export class Search extends Component {
             filterText: "",
             posts: posts
         }
+    }
+
+    componentDidMount() {
+        console.log("FINAL DIST: " + distance(40.78382, -73.97536, 40.70390, -73.9869090));
     }
 
     loadPosts = () => {

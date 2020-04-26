@@ -2,29 +2,23 @@ import Radar from 'radar-sdk-js';
 Radar.initialize('prj_live_pk_9960fa9015ec1c672178a43fa62142afc16b6aed');
 
 const distance = async (lat1, lng1, lat2, lng2) => {
-    // Radar.getDistance({
-    //     origin: {
-    //       latitude: lat1,
-    //       longitude: lng1
-    //     },
-    //     destination: {
-    //       latitude: lat2,
-    //       longitude: lng2
-    //     },
-    //     modes: ['car'],
-    //     units: 'imperial'
-    //   }).then((result) => {
-    //     console.log(result.routes);
-    //   }).catch((err) => {
-    //     // optionally, do something with err
+    fetch("https://api.radar.io/v1/route/distance?origin="+lat1+","+lng1+"&destination="+lat2+","+lng2+"&modes=foot,car&units=imperial", {
+    headers: {
+        Authorization: "prj_live_pk_9960fa9015ec1c672178a43fa62142afc16b6aed"
+    }
+    }).then((response) => {
+        response.json().then((data) => {
+            console.log(data);
+            const dist = data['routes']['car']['distance']['text'];
+            console.log(dist);
+            return dist;
+        });
+    })
+    //   Radar.trackOnce(function(err, { status, location, user, events }) {
+    //     if (!err) {
+    //       console.log(location)
+    //     }
     //   });
-    Radar.trackOnce(function(err, { status, location, user, events }) {
-        if (!err) {
-          console.log(location)
-        }
-      });
-    const dist = 0;
-    return dist;
 }
 
 export default distance;

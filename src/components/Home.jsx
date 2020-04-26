@@ -5,7 +5,6 @@ import PostFeed from './PostFeed';
 
 import dummyData from '../dummyposts';
 import { db } from '../firebase/firebase.utils.js';
-import distance from '../distance.js';
 
 export class Home extends Component {
     constructor(props) {
