@@ -8,6 +8,8 @@ import Progress from '../components/onboarding/progress/progress.component';
 import Feedback from '../components/onboarding/feedback.component';
 import Header from '../components/onboarding/header.component';
 import StepHeader from '../components/onboarding/step-header.component';
+import Checkbox from '../components/onboarding/checkbox.component';
+import Textarea from '../components/onboarding/textarea/textarea.component';
 
 import { Redirect } from 'react-router-dom';
 import { useFirstTime } from '../hooks/auth';
@@ -127,7 +129,7 @@ function OnboardingSwiper() {
                   name: 'not-empty',
                   on: 'blur',
                   validator: (value) => value !== '',
-                  errorMessage: 'Username cannot be empty',
+                  errorMessage: 'Age cannot be empty',
                 },
                 {
                   name: 'is-number',
@@ -202,32 +204,50 @@ function OnboardingSwiper() {
           </Container>
         )}
       </Step>
-      <Step name="aditional-details">
+
+      <Step name="select">
         {({ validStep, finish }) => (
           <Container>
-            <StepHeader>Finish</StepHeader>
+            <StepHeader>
+              What will you primarily be using Communify for?
+            </StepHeader>
+            {/* renders the two checkboxes */}
+            <Checkbox />
+            {/* text area for volunteering skills, only display if volunteering */}
+            <StepHeader>What areas of volunteering are for you?</StepHeader>
             <Field
-              name="text"
+              name="tags"
               type="text"
               validations={[
                 {
-                  name: 'is-email',
+                  name: 'not-empty',
                   on: 'blur',
-                  errorMessage: 'You have to write a valid email',
+                  validator: (value) => value !== '',
+                  errorMessage: 'This cannot be left empty',
                 },
                 {
                   name: 'on-enter',
                   on: 'enter',
-                  validations: ['is-email'],
+                  validations: ['not-empty'],
                 },
               ]}
             >
-              {({ type, value, onChange, onBlur, onEnter, valid, error }) => (
-                <InputText
+              {({
+                type,
+                value,
+                onChange,
+                onFocus,
+                onBlur,
+                onEnter,
+                valid,
+                error,
+              }) => (
+                <Textarea
                   type={type}
-                  placeholder="Email"
+                  placeholder="Skills, interests, etc."
                   value={value}
                   onChange={onChange}
+                  onFocus={onFocus}
                   onBlur={onBlur}
                   onEnter={() => onEnter(finish)}
                   valid={valid}
@@ -235,25 +255,17 @@ function OnboardingSwiper() {
                 />
               )}
             </Field>
+
             <Button
               disabled={!validStep}
-              onClick={validStep ? finish : () => console.log('FINISHED')}
+              onClick={validStep ? finish : undefined}
             >
               Complete!
             </Button>
           </Container>
         )}
       </Step>
-      <End>
-        {({ full_name }) => (
-          <Container>
-            <Feedback
-              title={`Hello, ${full_name.name}! 👋`}
-              subtitle="It's good to know that you're interested in subscribing to our newsletter!"
-            />
-          </Container>
-        )}
-      </End>
+      <End>{({ onboarding }) => <Redirect to="/app" />}</End>
     </Onboarding>
   );
 }
