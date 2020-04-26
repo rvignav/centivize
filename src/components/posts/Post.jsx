@@ -8,6 +8,8 @@ import { useUid } from '../../hooks/auth.js';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Post = () => {
+  const user = useUid()[0];
+  console.log(user);
   const [value, setValue] = useState('');
   const [text, setText] = useState('');
   const [gender, setGender] = useState('');
@@ -27,19 +29,16 @@ const Post = () => {
   };
 
   const handleChange3 = (event) => {
-    this.setState({ gender: event.target.value });
+    setGender(event.target.value);
   };
 
   const handleChange4 = (event) => {
-    this.setState({ year: event.target.value });
+    setYear(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    const user = useUid()[0];
-    console.log(user);
-    // const user = 'user';
-    const title = this.state.text;
-    const post = this.state.value;
+    const title = text;
+    const post = value;
     db.collection(user)
       .add({
         title,
@@ -62,9 +61,6 @@ const Post = () => {
 
   const handleSubmit2 = (event) => {
     const user = 'user';
-    const { gender } = this.state;
-    const { year } = this.state;
-    const { symptoms } = this.state;
     const s = symptoms.split(', ');
     for (let i = 0; i < s.length; i++) {
       s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
@@ -96,8 +92,6 @@ const Post = () => {
           });
         });
     });
-
-    // alert(`An essay was submitted: ${gender} and ${year} and ${symptoms}`);
     event.preventDefault();
   };
 
@@ -111,26 +105,26 @@ const Post = () => {
         >
           <Tabs.Tab id="tab1" title="Diagnosis">
             <div className="pt-3">
-              <form onSubmit={this.handleSubmit2} className="form">
+              <form onSubmit={handleSubmit2} className="form">
                 <input
                   type="text"
                   name="gender"
                   placeholder="Gender"
                   className="mb-2 form-control"
-                  value={this.state.gender}
-                  onChange={this.handleChange3}
+                  value={gender}
+                  onChange={handleChange3}
                 />
                 <input
                   type="text"
                   name="year"
                   placeholder="Year of Birth"
                   className="mb-3 form-control"
-                  value={this.state.year}
-                  onChange={this.handleChange4}
+                  value={year}
+                  onChange={handleChange4}
                 />
                 <textarea
-                  value={this.state.symptoms}
-                  onChange={this.handleChange5}
+                  value={symptoms}
+                  onChange={handleChange5}
                   placeholder="Write your symptoms, separated by commas..."
                   className="pb-5 mb-3 form-control"
                 />
@@ -169,20 +163,20 @@ const Post = () => {
           </Tabs.Tab>
           <Tabs.Tab id="tab2" title="Custom">
             <div>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <input
                   type="text"
                   name="name"
                   placeholder="Title"
                   className="mt-3 mb-2 form-control"
-                  value={this.state.text}
-                  onChange={this.handleChange2}
+                  value={text}
+                  onChange={handleChange2}
                 />
                 <textarea
-                  value={this.state.value}
+                  value={value}
                   className="pb-5 mb-3 form-control"
                   placeholder="Write your post here..."
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                 />
                 <input
                   type="submit"
@@ -197,3 +191,5 @@ const Post = () => {
     </center>
   );
 };
+
+export default Post;
