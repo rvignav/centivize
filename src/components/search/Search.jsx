@@ -25,7 +25,7 @@ const Search = () => {
         const year = 2020 - val[key].fields.age;
         let { gender } = val[key].fields;
         gender = gender.charAt(0).toUpperCase() + gender.substring(1);
-        const symptoms = val[key].fields.symptoms.split(', ');
+        const symptoms = val[key].fields.symptoms.split(' ');
         for (let i = 0; i < symptoms.length; i++) {
           symptoms[i] =
             symptoms[i].charAt(0).toUpperCase() + symptoms[i].substring(1);
