@@ -1,5 +1,6 @@
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/database';
 
 import firebase from 'firebase/app';
 
@@ -27,6 +28,7 @@ const emailProvider = new firebase.auth.EmailAuthProvider();
 // const microsoftProvider = new firebase.auth.OAuthProvider('microsoft.com');
 
 const db = firebase.firestore();
+const datab = firebase.database();
 
 export {
   config,
@@ -36,6 +38,7 @@ export {
   facebookProvider,
   emailProvider,
   db,
+  datab,
 };
 
 export default firebase;
