@@ -6,6 +6,8 @@ import { useLoggedIn } from '../hooks/auth';
 
 import '../css/land.css';
 
+import logo from "../assets/centivizeit.png";
+
 const Landing = () => {
   const [loggedIn, loadingLoggedIn] = useLoggedIn();
 
@@ -17,8 +19,8 @@ const Landing = () => {
     <>
       <header className="text-center land pt-5">
         <div className="container-fluid">
-          <h1>Communify</h1>
-          <h2 className="pb-3">Catch phrase goes here.</h2>
+          <img src={logo} className="img-fluid col-7 pb-2 col-sm-4 col-lg-3 col-xl-2" />
+          <h2 className="pb-2">Incentivizing social good and smart health care.</h2>
           <Link to="/signup">
             <Button variant="primary mb-2" size="lg">
               Get started
@@ -33,7 +35,7 @@ const Landing = () => {
         </div>
       </header>
       <div className="container text-center pt-4 pb-3">
-        <h1>Point One</h1>
+        <h1>Community Crowdfunding</h1>
         <p className="lead">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
           ullam?
