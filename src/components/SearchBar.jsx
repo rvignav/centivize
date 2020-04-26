@@ -4,7 +4,7 @@ export class SearchBar extends Component {
     render() {
         return (
             <div className="row">
-                <div class="col pt-3">
+                <div className="col pt-4">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">

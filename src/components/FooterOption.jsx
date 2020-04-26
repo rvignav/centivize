@@ -7,7 +7,7 @@ export class FooterOption extends Component {
     return (
       <div className="col">
         <Link to={`/app/${this.props.pageName}`}>
-          <button className="h-100 w-100">{this.props.icon}</button>
+          <button className={"footer-button h-100 w-100" + (this.props.current ? " current" : "")}>{this.props.icon}</button>
         </Link>
       </div>
     );

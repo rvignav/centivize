@@ -21,15 +21,21 @@ header {
 }
 
 /* footer styles */
-button {
+.footer-button {
   border: 0;
   padding: 0.8rem;
   background-color: var(--light);
   color: var(--dark);
 }
 
-button:hover,
-button:active {
+.footer-button:hover,
+.footer-button:active {
+  background-color: var(--secondary);
+}
+
+.footer-button.current {
+  color: var(--primary);
+  border-top: var(--primary) 5px solid;
   background-color: var(--secondary);
 }
 
@@ -56,5 +62,5 @@ button:active {
 }
 
 .post button {
-  font-size: 1em
+  font-size: 1em;
 }

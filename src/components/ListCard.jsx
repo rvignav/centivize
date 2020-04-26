@@ -13,7 +13,7 @@ export class ListCard extends Component {
             <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
                 <div className="card-header">
                     <h4>{this.props.post.title}</h4>
-                    <h5>{this.props.post.name}</h5>
+                    <h5>{this.props.post.name} <small>-{this.props.post.date}</small></h5>
                 </div>
                 <div className="card-body">
                     <p>{this.props.post.intro}</p>
