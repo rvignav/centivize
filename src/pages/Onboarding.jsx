@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Onboarding, Info, Step, Field, End } from '@reactive-labs/onboarding';
+import { Redirect } from 'react-router-dom';
 import Container from '../components/onboarding/container.component';
 import InputText from '../components/onboarding/input-text/input-text.component';
 import Button from '../components/onboarding/button/button.component';
@@ -11,12 +12,17 @@ import StepHeader from '../components/onboarding/step-header.component';
 import Checkbox from '../components/onboarding/checkbox.component';
 import Textarea from '../components/onboarding/textarea/textarea.component';
 
-import { Redirect } from 'react-router-dom';
-import { useFirstTime } from '../hooks/auth';
+import { useFirstTime, useUser, useLoggedIn } from '../hooks/auth';
 
 function OnboardingSwiper() {
   // redirect if not first time
   const [firstTime, loadingFirstTime] = useFirstTime();
+  const [loggedIn, loadingLoggedIn] = useLoggedIn();
+  const [user, loadingUser] = useUser();
+
+  if (!loadingLoggedIn && !loggedIn) {
+    return <Redirect to="/" />;
+  }
 
   if (!loadingFirstTime && !firstTime) {
     return <Redirect to="/app" />;
@@ -40,7 +46,9 @@ function OnboardingSwiper() {
             <Info>
               {({ onboarding }) => (
                 <Feedback
-                  title={`Welcome, John Doe!`}
+                  title={
+                    loadingUser ? 'Welcome!' : `Welcome, ${user.displayName}!`
+                  }
                   subtitle="Just a few questions and your account will be good to go!"
                 />
               )}
@@ -141,7 +149,7 @@ function OnboardingSwiper() {
                   name: 'valid-age',
                   on: 'blur',
                   validator: (value) =>
-                    value == '' || (value > 0 && value < 130),
+                    value === '' || (value > 0 && value < 130),
                   errorMessage: `Age is not valid`,
                 },
                 {
