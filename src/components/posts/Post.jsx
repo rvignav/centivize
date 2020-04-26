@@ -136,22 +136,29 @@ const Post = () => {
           <Tabs.Tab id="tab1" title="Diagnosis">
             <div className="pt-3">
               <form onSubmit={handleSubmit2} className="form">
-                <input
-                  type="text"
-                  name="gender"
-                  placeholder="Gender"
-                  className="mb-2 form-control"
-                  value={gender}
-                  onChange={handleChange3}
-                />
-                <input
-                  type="text"
-                  name="year"
-                  placeholder="Year of Birth"
-                  className="mb-3 form-control"
-                  value={year}
-                  onChange={handleChange4}
-                />
+                <div className="form-row">
+                  <div className="col">
+                    <input
+                      type="text"
+                      name="gender"
+                      placeholder="Gender"
+                      className="mb-2 form-control"
+                      value={gender}
+                      onChange={handleChange3}
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      name="year"
+                      placeholder="Year of Birth"
+                      className="mb-3 form-control"
+                      value={year}
+                      onChange={handleChange4}
+                    />
+                  </div>
+                </div>
+
                 <textarea
                   value={symptoms}
                   onChange={handleChange5}
@@ -165,7 +172,7 @@ const Post = () => {
                 />
                 <input
                   type="text"
-                  placeholder="What is the duration of the symptoms (constant, few minutes in the day, etc.)?"
+                  placeholder="What is the duration of the symptoms?"
                   className="mb-3 form-control"
                 />
                 <input
@@ -180,7 +187,7 @@ const Post = () => {
                 />
                 <input
                   type="text"
-                  placeholder="What past treatments have you tried (medications, hot pack, ice, etc.) and how did they affect you?"
+                  placeholder="Past treatments and their effects? (medication, ice pack, etc.)"
                   className="mb-3 form-control"
                 />
                 <input
