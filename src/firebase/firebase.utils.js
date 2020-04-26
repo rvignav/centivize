@@ -28,6 +28,8 @@ const emailProvider = new firebase.auth.EmailAuthProvider();
 // const microsoftProvider = new firebase.auth.OAuthProvider('microsoft.com');
 
 const db = firebase.firestore();
+db.enablePersistence();
+
 const datab = firebase.database();
 
 export {

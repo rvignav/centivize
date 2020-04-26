@@ -1,22 +1,36 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import SearchInfo from './SearchInfo';
 import PostFeed from '../posts/PostFeed';
-
 import dummyData from '../../dummyposts';
-import distance from '../../distance.js';
-import diagnose from '../../diagnosis.js';
-
-import { db, datab } from '../../firebase/firebase.utils.js';
+import distance from '../../distance';
+import diagnose from '../../diagnosis';
+import { db, datab } from '../../firebase/firebase.utils';
 
 const Search = () => {
   const [sortMethod, setSortMethod] = useState('date');
   const [searchQuery, setSearchQuery] = useState('');
   const [posts, setPosts] = useState([]);
 
-  //   const []
+  const [postDocs, loadingPostDocs] = useCollectionData(db.collection('posts'));
 
+  // if (!loadingPostDocs) {
+  //   setPosts(
+  //     postDocs.map((postDoc) => {
+  //       console.log(postDoc);
+  //     }),
+  //   );
+  // }
+
+  useEffect(
+    () =>
+      console.log(
+        `FINAL DIST: ${distance(40.78382, -73.97536, 40.7039, -73.986909)}`,
+      ),
+    [],
+  );
   const loadPosts = () => {
     datab.ref('posts').on('value', (snapshot) => {
       const val = snapshot.val();

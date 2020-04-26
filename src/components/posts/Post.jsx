@@ -7,11 +7,12 @@ import { usePosition } from 'use-position';
 import firebase, { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
 import geofence from '../../geofence.js';
-import { useUid } from '../../hooks/auth.js';
+import { useUser, useUid } from '../../hooks/auth.js';
 
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Post = () => {
+  const [user, loadingUser] = useUser();
   const uid = useUid()[0];
   console.log(uid);
   const [value, setValue] = useState('');
