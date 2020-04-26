@@ -14,14 +14,14 @@ export class ListCard extends Component {
   changeVote = (id, amount) => {};
 
   // CURRENTLY:
-  // CardHeader holds Title, Author, and Date
+  // CardHeader holds Title, Author, and Date, Upvote/Downvote buttons
   // CardBody holds the message, help button, and detailed paragraph (expandable on 'Learn more')
 
   render() {
     return (
       <div>
         <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
-          <CardHeader post={this.props.post} />
+          <CardHeader post={this.props.post} changeVote={this.changeVote} />
           <CardBody
             post={this.props.post}
             toggleCollapsed={this.toggleCollapsed}
