@@ -127,6 +127,31 @@ export default class Home extends Component {
                     className="form-control pb-5 mb-3"
                   />
                   <input
+                    type="text"
+                    placeholder="How long ago did these symptoms first appear?"
+                    className="form-control mb-3"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Duration of the symptoms (constant, few minutes in the day, etc.)"
+                    className="form-control mb-3"
+                  />
+                  <input
+                    type="text"
+                    placeholder="How do the symptoms affect daily activities?"
+                    className="form-control mb-3"
+                  />
+                  <input
+                    type="text"
+                    placeholder="What medical conditions were/are you diagnosed with?"
+                    className="form-control mb-3"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Past treatments (medications, hot pack, ice, etc.)"
+                    className="form-control mb-3"
+                  />
+                  <input
                     type="submit"
                     className="btn btn-primary"
                     value="Submit"
@@ -151,7 +176,11 @@ export default class Home extends Component {
                     placeholder="Write your post here..."
                     onChange={this.handleChange}
                   />
-                  <input type="submit" class="btn btn-primary" value="Submit" />
+                  <input
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Submit"
+                  />
                 </form>
               </div>
             </Tabs.Tab>
