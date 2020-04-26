@@ -6,6 +6,8 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 
+import VoteButton from './VoteButton';
+
 export default class CardHeader extends Component {
   render() {
     return (
@@ -14,6 +16,7 @@ export default class CardHeader extends Component {
           <div className="col">
             <h4 className="font-weight-bold">
               {this.props.post.title}
+              {/* if recommended, show star */}
               <FontAwesomeIcon
                 className="text-primary"
                 icon={faStar}
@@ -29,13 +32,21 @@ export default class CardHeader extends Component {
 
           {/* Upvote and downvote buttons */}
           <div className="col-fit float-right">
-            <div className="btn-group">
-              <button className="btn btn-sm btn-dark">
-                <FontAwesomeIcon icon={faChevronUp} />
-              </button>
-              <button className="btn btn-sm btn-dark mr-2">
-                <FontAwesomeIcon icon={faChevronDown} />
-              </button>
+            <div className="btn-group mr-2">
+              {/* upvote */}
+              <VoteButton
+                changeVote={this.props.changeVote}
+                voteChangeAmt={1}
+                id={this.props.id}
+                icon={<FontAwesomeIcon icon={faChevronUp} />}
+              />
+              {/* downvote */}
+              <VoteButton
+                changeVote={this.props.changeVote}
+                voteChangeAmt={-1}
+                id={this.props.id}
+                icon={<FontAwesomeIcon icon={faChevronDown} />}
+              />
             </div>
           </div>
         </div>

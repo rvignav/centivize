@@ -11,7 +11,9 @@ export class ListCard extends Component {
     info.style.display = info.style.display === 'block' ? 'none' : 'block';
   };
 
-  changeVote = (id, amount) => {};
+  changeVote = (id, amount) => {
+    console.log('Change ' + id + ' by ' + amount);
+  };
 
   // CURRENTLY:
   // CardHeader holds Title, Author, and Date, Upvote/Downvote buttons
@@ -21,7 +23,11 @@ export class ListCard extends Component {
     return (
       <div>
         <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
-          <CardHeader post={this.props.post} changeVote={this.changeVote} />
+          <CardHeader
+            id={this.props.post.id}
+            post={this.props.post}
+            changeVote={this.changeVote}
+          />
           <CardBody
             post={this.props.post}
             toggleCollapsed={this.toggleCollapsed}
