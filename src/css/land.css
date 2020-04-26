@@ -1,10 +1,9 @@
 header.land {
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 29em;
-  max-height: 69h;
+  max-height: 69vh;
   min-height: 50vh;
   background-image: url('../assets/bg.jpg');
   border-bottom-left-radius: 50% 10%;

@@ -23,7 +23,7 @@ const Welcome = styled.h1`
 const WelcomeHeader = () => (
   <HeaderLayout>
     <ResizedLogo />
-    <Welcome>Welcome to Communify</Welcome>
+    <Welcome>Welcome to Centivize It</Welcome>
   </HeaderLayout>
 );
 
