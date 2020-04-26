@@ -30,8 +30,8 @@ export default class CardHeader extends Component {
               {this.props.post.author && ' - '}
               <small>
                 {this.props.post.timePosted
-                  .toDate()
-                  .toLocaleDateString('en-US')}
+                  ?.toDate()
+                  ?.toLocaleDateString('en-US')}
               </small>
             </h5>
           </div>
