@@ -1,13 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { auth } from '../firebase/firebase.utils';
+import { useFirstTime } from '../hooks/auth';
 
 const Onboarding = () => {
-  const [user] = useAuthState(auth);
+  const [firstTime, loadingFirstTime] = useFirstTime();
 
-  if (user) {
+  if (!loadingFirstTime && !firstTime) {
     return <Redirect to="/app" />;
   }
 

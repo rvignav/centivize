@@ -5,9 +5,6 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
-
-import { auth } from '../firebase/firebase.utils';
 
 import Home from '../components/Home';
 import Search from '../components/Search';
@@ -16,11 +13,17 @@ import Profile from '../components/Profile';
 import Location from '../components/Location';
 import Steem from '../components/Steem';
 import Footer from '../components/Footer';
+import { useFirstTime, useLoggedIn } from '../hooks/auth';
 
 const App = () => {
-  const [user, initializing] = useAuthState(auth);
+  const [loggedIn, loadingLoggedIn] = useLoggedIn();
+  const [firstTime, loadingUserData] = useFirstTime();
 
-  if (!initializing && !user) {
+  if (!loadingLoggedIn && !loggedIn) {
+    return <Redirect to="/" />;
+  }
+
+  if (!loadingUserData && firstTime) {
     return <Redirect to="/onboarding" />;
   }
 

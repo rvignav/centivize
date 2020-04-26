@@ -1,20 +1,20 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Redirect, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-import { auth } from '../firebase/firebase.utils';
+import { useLoggedIn } from '../hooks/auth';
 
 const Landing = () => {
-  const [user] = useAuthState(auth);
+  const [loggedIn, loadingLoggedIn] = useLoggedIn();
 
-  if (user) {
+  if (!loadingLoggedIn && loggedIn) {
     return <Redirect to="/app" />;
   }
+
   return (
     <>
       <div className="mb-2">
-        <Link to="/onboarding">
+        <Link to="/signup">
           <Button variant="primary" size="lg">
             Get started
           </Button>{' '}

@@ -6,9 +6,9 @@ export class ListCard extends Component {
   toggleCollapsed = (id) => {
     let button = document.getElementById('collapseButton' + id);
     button.innerText =
-      button.innerText == 'Learn more' ? 'Show less' : 'Learn more';
+      button.innerText === 'Learn more' ? 'Show less' : 'Learn more';
     let info = document.getElementById('collapseInfo' + id);
-    info.style.display = info.style.display == 'block' ? 'none' : 'block';
+    info.style.display = info.style.display === 'block' ? 'none' : 'block';
   };
 
   render() {
