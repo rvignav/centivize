@@ -11,12 +11,19 @@ export class ListCard extends Component {
     info.style.display = info.style.display === 'block' ? 'none' : 'block';
   };
 
+  changeVote = (id, amount) => {
+    
+  }
+
   render() {
     return (
       <div>
         <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
           <CardHeader post={this.props.post} />
-          <CardBody post={this.props.post} />
+          <CardBody
+            post={this.props.post}
+            toggleCollapsed={this.toggleCollapsed}
+          />
         </div>
       </div>
     );
