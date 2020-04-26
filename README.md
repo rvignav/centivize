@@ -1,3 +1,1 @@
-# hack-now
-
-Our submission to hack:now
+# [Centivize](https://centivize.it)
