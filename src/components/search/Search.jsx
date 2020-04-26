@@ -22,14 +22,6 @@ const Search = () => {
       return { id, ...postDoc.data() };
     });
   }
-
-  useEffect(
-    () =>
-      console.log(
-        `FINAL DIST: ${distance(40.78382, -73.97536, 40.7039, -73.986909)}`,
-      ),
-    [],
-  );
   const loadPosts = () => {
     datab.ref('posts').on('value', (snapshot) => {
       const val = snapshot.val();
@@ -67,6 +59,13 @@ const Search = () => {
     });
     return dummyData;
   };
+
+  useEffect(() => {
+    console.log(
+      `FINAL DIST: ${distance(40.78382, -73.97536, 40.7039, -73.986909)}`,
+    );
+    loadPosts();
+  }, []);
 
   const toggleSetting = (setting) => {
     setSortMethod(setting);

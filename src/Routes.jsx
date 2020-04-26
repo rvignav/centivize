@@ -5,6 +5,7 @@ import App from './pages/App';
 import Landing from './pages/Landing';
 import Onboarding from './pages/Onboarding';
 import Auth from './pages/Auth';
+import Demo from './pages/Demo';
 
 const Routes = () => {
   return (
@@ -21,6 +22,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/(signin|signup)">
           <Auth />
+        </Route>
+        <Route exact path="/demo">
+          <Demo />
         </Route>
       </Switch>
     </Router>
