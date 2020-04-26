@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
-import { db } from '../firebase/firebase.utils.js';
-import diagnose from '../diagnosis.js';
+import { db } from '../../firebase/firebase.utils.js';
+import diagnose from '../../diagnosis.js';
 
 export default class Home extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { Redirect } from 'react-router-dom';
-import { auth } from '../firebase/firebase.utils';
+import { auth } from '../../firebase/firebase.utils';
 
 const SignOutButton = () => {
   const [authState, setAuthState] = useState('signed in');

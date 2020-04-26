@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import SearchInfo from "../components/SearchInfo"
-import PostFeed from "../components/PostFeed"
+import SearchInfo from "./SearchInfo"
+import PostFeed from "../posts/PostFeed"
 
-import dummyData from "../dummyposts"
-import distance from '../distance.js';
+import dummyData from "../../dummyposts"
+import distance from '../../distance.js';
 
 
 export class Search extends Component {
