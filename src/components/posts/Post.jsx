@@ -15,14 +15,13 @@ const Post = () => {
   const [gender, setGender] = useState('');
   const [year, setYear] = useState('');
   const [symptoms, setSymptoms] = useState('');
-  let location;
-  let lat;
-  let lng;
+  const [location, setLocation] = useState({ lat: 0, lng: 0 });
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      lat = position.coords.latitude;
-      lng = position.coords.longitude;
-      location = { lat, lng };
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      setLocation({ lat, lng });
       db.doc(`users/${uid}`)
         .update({
           coordinates: new firebase.firestore.GeoPoint(lat, lng),
@@ -58,6 +57,7 @@ const Post = () => {
     const post = value;
     let address;
     Geocode.setApiKey('AIzaSyARn00rdknaP7N9Qjzhv8duDJo1Dxkv2ZA');
+    const { lat, lng } = location;
     Geocode.fromLatLng(lat.toString(), lng.toString()).then(
       (response) => {
         address = response.results[0].formatted_address;
@@ -107,6 +107,7 @@ const Post = () => {
       console.log(`str: ${str}`);
       let address;
       Geocode.setApiKey('AIzaSyARn00rdknaP7N9Qjzhv8duDJo1Dxkv2ZA');
+      const { lat, lng } = location;
       Geocode.fromLatLng(lat.toString(), lng.toString()).then((response) => {
         address = response.results[0].formatted_address;
         db.collection(uid)
