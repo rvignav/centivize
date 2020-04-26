@@ -18,6 +18,8 @@
 /* header styles */
 header {
   background-color: var(--light);
+  padding: 0.4em;
+  color: var(--primary);
 }
 
 /* footer styles */
