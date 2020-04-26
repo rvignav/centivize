@@ -21,9 +21,9 @@ const App = () => {
     return <Redirect to="/" />;
   }
 
-  if (!loadingUserData && firstTime) {
-    return <Redirect to="/onboarding" />;
-  }
+  // if (!loadingUserData && firstTime) {
+  //   return <Redirect to="/onboarding" />;
+  // }
 
   return (
     <Router>

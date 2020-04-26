@@ -133,7 +133,7 @@ export default class Home extends Component {
                   />
                   <input
                     type="text"
-                    placeholder="Duration of the symptoms (constant, few minutes in the day, etc.)"
+                    placeholder="What is the duration of the symptoms (constant, few minutes in the day, etc.)?"
                     className="form-control mb-3"
                   />
                   <input
@@ -148,7 +148,7 @@ export default class Home extends Component {
                   />
                   <input
                     type="text"
-                    placeholder="Past treatments (medications, hot pack, ice, etc.)"
+                    placeholder="What past treatments have you tried (medications, hot pack, ice, etc.) and how did they affect you?"
                     className="form-control mb-3"
                   />
                   <input
