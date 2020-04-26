@@ -29,7 +29,7 @@ const Profile = () => {
           </div>
         </div>
         <h1>John Doe</h1>
-        <p className="email">johndoe1@gmail.com</p>
+        <p className="email"></p>
         <p>Primarily volunteers/helps others. Volunteering interests/skills: food delivery.</p>
         <p className="balance">Current balance: <span className="value">$25.00</span></p>
         <SignOutButton />

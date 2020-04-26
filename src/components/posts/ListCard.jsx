@@ -12,7 +12,27 @@ export class ListCard extends Component {
   };
 
   changeVote = (id, amount) => {
-    console.log('Change ' + id + ' by ' + amount);
+    // get buttons
+    let upvote = document.getElementById('vote1' + id);
+    let downvote = document.getElementById('vote0' + id);
+    // if one of these is green, there has been a vote so just return
+    if (
+      upvote.className.includes('btn-success') ||
+      downvote.className.includes('btn-success')
+    ) {
+      return;
+    } else {
+      // otherwise set the correct one to green
+      if (amount === 1) {
+        upvote.className = 'btn-sm btn btn-success';
+        console.log(id + ' has been UPVOTED');
+        // FIREBASE CODE HERE for upvoting id
+      } else {
+        downvote.className = 'btn-sm btn btn-success';
+        console.log(id + ' has been DOWNVOTED');
+        // FIREBASE CODE HERE for downvoting id
+      }
+    }
   };
 
   // CURRENTLY:

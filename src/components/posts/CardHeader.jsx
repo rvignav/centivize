@@ -43,7 +43,7 @@ export default class CardHeader extends Component {
               {/* downvote */}
               <VoteButton
                 changeVote={this.props.changeVote}
-                voteChangeAmt={-1}
+                voteChangeAmt={0}
                 id={this.props.id}
                 icon={<FontAwesomeIcon icon={faChevronDown} />}
               />
