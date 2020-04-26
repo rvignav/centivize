@@ -21,7 +21,7 @@ function OnboardingSwiper() {
   const [firstTime, loadingFirstTime] = useFirstTime();
   const [loggedIn, loadingLoggedIn] = useLoggedIn();
   const [user, loadingUser] = useUser();
-  const [uid, loadingUid] = useUid();
+  const [uid] = useUid();
 
   if (!loadingLoggedIn && !loggedIn) {
     return <Redirect to="/" />;
