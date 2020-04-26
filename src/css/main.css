@@ -70,3 +70,39 @@
 .menu {
   box-shadow: 0px -1px 10px #61616152;
 }
+
+img.round {
+  margin-top: 1em;
+  width: 13em;
+  height: 13em;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.profile h1 {
+  padding-top: 0.5em;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.profile p.email {
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.profile p.balance {
+  font-size: 2em;
+}
+
+.profile span.value {
+  display: block;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.footer-button:focus {
+  outline: none;
+}

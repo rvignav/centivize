@@ -21,9 +21,9 @@ const App = () => {
     return <Redirect to="/" />;
   }
 
-  if (!loadingFirstTime && firstTime) { // TODO: uncomment for production
-     return <Redirect to="/onboarding" />;
-  }
+  // if (!loadingFirstTime && firstTime) { // TODO: uncomment for production
+  //    return <Redirect to="/onboarding" />;
+  // }
 
   return (
     <Router>

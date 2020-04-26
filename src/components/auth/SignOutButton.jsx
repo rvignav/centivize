@@ -19,7 +19,7 @@ const SignOutButton = () => {
 
   return (
     <Button
-      variant="danger"
+      variant="dark"
       onClick={signOut}
       size="lg"
       disabled={authState === 'signing out'}
