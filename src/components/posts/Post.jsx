@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
 import { confirmAlert } from 'react-confirm-alert'; // Import
+import Geocode from 'react-geocode';
+import { usePosition } from 'use-position';
+
 import firebase, { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
 import { useUid } from '../../hooks/auth.js';
+
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import Geocode from 'react-geocode';
 
 const Post = () => {
   const uid = useUid()[0];
@@ -15,22 +18,9 @@ const Post = () => {
   const [gender, setGender] = useState('');
   const [year, setYear] = useState('');
   const [symptoms, setSymptoms] = useState('');
-  const [location, setLocation] = useState({ lat: 0, lng: 0 });
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      setLocation({ lat, lng });
-      db.doc(`users/${uid}`)
-        .update({
-          coordinates: new firebase.firestore.GeoPoint(lat, lng),
-        })
-        .then(function () {
-          console.log('DONE');
-        });
-    });
-  }, []);
+  const watch = true;
+  const { latitude, longitude } = usePosition(watch);
+  const location = { lat: latitude, lng: longitude };
 
   const handleChange = (event) => {
     setValue(event.target.value);
