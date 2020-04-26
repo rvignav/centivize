@@ -6,7 +6,7 @@ import {
   googleProvider,
   facebookProvider,
   emailProvider,
-} from '../firebase/firebase.utils';
+} from '../../firebase/firebase.utils';
 
 // Configure FirebaseUI.
 const uiConfig = {

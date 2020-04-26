@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignOutButton from './SignOutButton';
+import SignOutButton from './auth/SignOutButton';
 
 export class Home extends Component {
   render() {

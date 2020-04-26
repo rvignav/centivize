@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import PostFeed from './PostFeed';
+import PostFeed from './posts/PostFeed';
 
 import dummyData from '../dummyposts';
 import { db } from '../firebase/firebase.utils.js';

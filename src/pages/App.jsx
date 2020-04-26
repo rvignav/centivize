@@ -7,12 +7,10 @@ import {
 } from 'react-router-dom';
 
 import Home from '../components/Home';
-import Search from '../components/Search';
-import Post from '../components/Post';
+import Search from '../components/search/Search';
+import Post from '../components/posts/Post';
 import Profile from '../components/Profile';
-import Location from '../components/Location';
-import Steem from '../components/Steem';
-import Footer from '../components/Footer';
+import Footer from '../components/footer/Footer';
 import { useFirstTime, useLoggedIn } from '../hooks/auth';
 
 const App = () => {
@@ -35,8 +33,6 @@ const App = () => {
           <Route path="/app/search" component={Search} />
           <Route path="/app/post" component={Post} />
           <Route path="/app/profile" component={Profile} />
-          <Route path="/app/location" component={Location} />
-          <Route path="/app/steem" component={Steem} />
           <Redirect to="/app/home" />
         </Switch>
         <Footer />
