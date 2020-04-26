@@ -27,7 +27,7 @@ function OnboardingSwiper() {
   if (!loadingFirstTime && !firstTime) {
     return <Redirect to="/app" />;
   }
-  
+
   // onboarding
   return (
     <Onboarding>
@@ -68,19 +68,19 @@ function OnboardingSwiper() {
               validations={[
                 {
                   name: 'not-empty',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => value !== '',
                   errorMessage: 'Username cannot be empty',
                 },
                 {
                   name: 'minimum-characters',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => value.length > 2,
                   errorMessage: `Must be at least 3 characters`,
                 },
                 {
                   name: 'available-username',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => true,
                   errorMessage: `Username not available`,
                 },
@@ -135,19 +135,19 @@ function OnboardingSwiper() {
               validations={[
                 {
                   name: 'not-empty',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => value !== '',
                   errorMessage: 'Age cannot be empty',
                 },
                 {
                   name: 'is-number',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => !isNaN(value),
                   errorMessage: `Age must be a number`,
                 },
                 {
                   name: 'valid-age',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) =>
                     value === '' || (value > 0 && value < 130),
                   errorMessage: `Age is not valid`,
@@ -223,15 +223,22 @@ function OnboardingSwiper() {
             <Checkbox />
             {/* text area for volunteering skills, only display if volunteering */}
             <StepHeader>What areas of volunteering are for you?</StepHeader>
+            <p>Please entered comma seperated values.</p>
             <Field
               name="tags"
               type="text"
               validations={[
                 {
                   name: 'not-empty',
-                  on: 'blur',
+                  on: 'change',
                   validator: (value) => value !== '',
                   errorMessage: 'This cannot be left empty',
+                },
+                {
+                  name: 'includes-comma',
+                  on: 'change',
+                  validator: (value) => value.includes(','),
+                  errorMessage: 'Must be comma seperated format',
                 },
                 {
                   name: 'on-enter',
@@ -252,7 +259,7 @@ function OnboardingSwiper() {
               }) => (
                 <Textarea
                   type={type}
-                  placeholder="Skills, interests, etc."
+                  placeholder="e.g. food delivery"
                   value={value}
                   onChange={onChange}
                   onFocus={onFocus}
@@ -273,7 +280,7 @@ function OnboardingSwiper() {
           </Container>
         )}
       </Step>
-      <End>{(test) => console.log('onboarding', test)}</End>
+      <End>{(test) => <Redirect to="/" />}</End>
     </Onboarding>
   );
 }

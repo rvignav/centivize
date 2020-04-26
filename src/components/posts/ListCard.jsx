@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import CardHeader from './CardHeader';
+import CardBody from './CardBody';
 
 export class ListCard extends Component {
   toggleCollapsed = (id) => {
@@ -13,40 +13,10 @@ export class ListCard extends Component {
 
   render() {
     return (
-      <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
-        <div className="card-header">
-          <h4>
-            {this.props.post.title}{' '}
-            <FontAwesomeIcon
-              className="text-primary"
-              icon={faStar}
-              style={{
-                display: this.props.recommended ? 'inline' : 'none',
-              }}
-            />
-          </h4>
-          <h5>
-            {this.props.post.name} <small>-{this.props.post.date}</small>
-          </h5>
-        </div>
-        <div className="card-body">
-          <p>{this.props.post.intro}</p>
-          <button className="btn btn-primary mr-2">
-            Help {this.props.post.name.split(' ')[0]}
-          </button>
-          <button
-            id={'collapseButton' + this.props.post.id}
-            className="btn btn-secondary"
-            onClick={() => this.toggleCollapsed(this.props.post.id)}
-          >
-            Learn more
-          </button>
-          <div
-            style={{ display: 'none', paddingTop: '1em' }}
-            id={'collapseInfo' + this.props.post.id}
-          >
-            {this.props.post.info}
-          </div>
+      <div>
+        <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
+          <CardHeader post={this.props.post} />
+          <CardBody post={this.props.post} />
         </div>
       </div>
     );
