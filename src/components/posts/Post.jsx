@@ -18,6 +18,10 @@ export default class Home extends Component {
       symptoms: '',
     };
 
+    this.componentDidMount() {
+
+    }
+
     this.handleChange = this.handleChange.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleChange3 = this.handleChange3.bind(this);
@@ -48,9 +52,9 @@ export default class Home extends Component {
   }
 
   handleSubmit(event) {
-    // const user = useUid()[0];
-    // console.log(user);
-    const user = 'user';
+    const user = useUid()[0];
+    console.log(user);
+    // const user = 'user';
     const title = this.state.text;
     const post = this.state.value;
     db.collection(user)
@@ -82,11 +86,13 @@ export default class Home extends Component {
     for (let i = 0; i < s.length; i++) {
       s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
     }
-    diagnose(s, gender, year).then((treatments) => {
+    diagnose(s, gender, year).then((response) => {
+      const issues = response[0];
+      const treatments = response[1];
       console.log(treatments);
       let str = '';
       for (let i = 0; i < treatments.length; i++) {
-        str += `${treatments[i]} \n`;
+        str += `${issues[i]}: ${treatments[i]} \n`;
       }
       console.log(`str: ${str}`);
       db.collection(user)

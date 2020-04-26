@@ -751,7 +751,7 @@ const diagnose = async (symptoms, gender, year) => {
       }),
     )
   ).map((promise) => promise.value);
-  return treatments;
+  return [names, treatments];
 };
 
 export default diagnose;
