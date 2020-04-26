@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Logo } from '../../assets/temp-logo.svg';
-
-const ResizedLogo = styled(Logo)`
-  width: 80px;
-  height: 80px;
-`;
+import logo from '../../assets/centivizeit2.png';
 
 const HeaderLayout = styled.header`
   margin: 20px 0;
@@ -22,7 +17,7 @@ const Welcome = styled.h1`
 
 const WelcomeHeader = () => (
   <HeaderLayout>
-    <ResizedLogo />
+    <img src={logo} width="200"/>
     <Welcome>Welcome to Centivize It</Welcome>
   </HeaderLayout>
 );
