@@ -28,7 +28,7 @@ const Post = () => {
   if (latitude) {
     db.doc(`users/${uid}`)
       .update({
-        coordinates: new firebase.firestore.GeoPoint(lat, lng),
+        coordinates: new firebase.firestore.GeoPoint(latitude, longitude),
       })
       .then(function () {
         console.log('DONE');
