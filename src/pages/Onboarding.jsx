@@ -220,7 +220,7 @@ function OnboardingSwiper() {
         {({ validStep, finish }) => (
           <Container>
             <StepHeader>
-              What will you primarily be using Communify for?
+              What will you primarily be using Centivize It for?
             </StepHeader>
             {/* renders the two checkboxes */}
             <Checkbox />
