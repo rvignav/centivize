@@ -196,7 +196,9 @@ function OnboardingSwiper() {
                 />
               )}
             </Field>
-            <Button onClick={nextStep}>Next Step</Button>
+            <Button disabled={!validStep} onClick={nextStep}>
+              Next Step
+            </Button>
           </Container>
         )}
       </Step>
@@ -235,7 +237,7 @@ function OnboardingSwiper() {
             </Field>
             <Button
               disabled={!validStep}
-              onClick={validStep ? finish : () => console.log("FINISHED")}
+              onClick={validStep ? finish : () => console.log('FINISHED')}
             >
               Complete!
             </Button>
