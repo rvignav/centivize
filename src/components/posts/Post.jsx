@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Tabs } from '@yazanaabed/react-tabs';
+import { confirmAlert } from 'react-confirm-alert'; // Import
 import { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
 import { useUid } from '../../hooks/auth.js';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -57,10 +59,18 @@ export default class Home extends Component {
         post,
       })
       .then(function () {
-        alert(`Thanks for submitting! Your post has been recorded.`);
-        console.log('DONE');
-        window.location.reload();
+        confirmAlert({
+          title: 'Thanks for submitting.',
+          message: 'Your response has been recorded.',
+          buttons: [
+            {
+              label: 'OK',
+              onClick: () => window.location.reload(),
+            },
+          ],
+        });
       });
+    event.preventDefault();
   }
 
   handleSubmit2(event) {
@@ -85,9 +95,16 @@ export default class Home extends Component {
           post: str,
         })
         .then(function () {
-          alert(`Thanks for submitting! Your post has been recorded.`);
-          console.log('DONE');
-          window.location.reload();
+          confirmAlert({
+            title: 'Thanks for submitting.',
+            message: 'Your response has been recorded.',
+            buttons: [
+              {
+                label: 'OK',
+                onClick: () => window.location.reload(),
+              },
+            ],
+          });
         });
     });
 
