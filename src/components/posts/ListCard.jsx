@@ -38,11 +38,20 @@ export class ListCard extends Component {
   // CURRENTLY:
   // CardHeader holds Title, Author, and Date, Upvote/Downvote buttons
   // CardBody holds the message, help button, and detailed paragraph (expandable on 'Learn more')
+  turnGreen = (id) => {
+    card = document.getElementById('card-' + id);
+    card.style.backgroundColor = 'green';
+  };
 
   render() {
     return (
       <div>
-        <div key={this.props.post.id} className="card mb-2 m-0 w-100 post">
+        <div
+          id={'card-' + this.props.post.id}
+          key={this.props.post.id}
+          className="card mb-2 m-0 w-100 post"
+          onClick={() => turnGreen(this.props.id)}
+        >
           <CardHeader
             id={this.props.post.id}
             post={this.props.post}
