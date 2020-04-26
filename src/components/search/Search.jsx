@@ -60,7 +60,9 @@ export class Search extends Component {
             }}
           >
             <Tabs.Tab id="list-tab" title="List">
-              <PostFeed posts={posts} />
+              <div className="pt-3">
+                <PostFeed posts={posts} />
+              </div>
             </Tabs.Tab>
             <Tabs.Tab id="map-tab" title="Map">
               <div />
