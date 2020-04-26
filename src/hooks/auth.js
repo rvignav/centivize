@@ -1,7 +1,6 @@
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useDocument } from 'react-firebase-hooks/firestore';
+import {useAuthState} from 'react-firebase-hooks/auth';
 
-import { auth, db } from '../firebase/firebase.utils';
+import {auth} from '../firebase/firebase.utils';
 
 const useUser = () => useAuthState(auth);
 
@@ -17,15 +16,4 @@ const useLoggedIn = () => {
   return [!!user, loading];
 };
 
-const useFirstTime = () => {
-  const [uid, loadingUid] = useUid();
-  const [userDoc, loading] = useDocument(db.doc(`users/${uid}`));
-
-  if (loadingUid) {
-    return [undefined, loadingUid];
-  }
-
-  return [!userDoc?.exists, loading];
-};
-
-export { useUser, useLoggedIn, useFirstTime, useUid };
+export { useUser,useLoggedIn, useUid };

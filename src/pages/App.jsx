@@ -11,7 +11,8 @@ import Search from '../components/search/Search';
 import Post from '../components/posts/Post';
 import Profile from '../components/Profile';
 import Footer from '../components/footer/Footer';
-import { useFirstTime, useLoggedIn } from '../hooks/auth';
+import { useLoggedIn } from '../hooks/auth';
+import {useFirstTime} from "../hooks/firestore";
 
 const App = () => {
   const [loggedIn, loadingLoggedIn] = useLoggedIn();
@@ -21,9 +22,10 @@ const App = () => {
     return <Redirect to="/" />;
   }
 
-  // if (!loadingFirstTime && firstTime) { // TODO: uncomment for production
-  //    return <Redirect to="/onboarding" />;
-  // }
+  if (!loadingFirstTime && firstTime) {
+    // TODO: uncomment for production
+    return <Redirect to="/onboarding" />;
+  }
 
   return (
     <Router>

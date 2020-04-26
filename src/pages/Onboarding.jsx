@@ -12,13 +12,16 @@ import StepHeader from '../components/onboarding/step-header.component';
 import Checkbox from '../components/onboarding/checkbox.component';
 import Textarea from '../components/onboarding/textarea/textarea.component';
 
-import { useFirstTime, useUser, useLoggedIn } from '../hooks/auth';
+import { useUser, useLoggedIn, useUid } from '../hooks/auth';
+import { useFirstTime } from '../hooks/firestore';
+import { db } from '../firebase/firebase.utils';
 
 function OnboardingSwiper() {
   // redirect if not first time
   const [firstTime, loadingFirstTime] = useFirstTime();
   const [loggedIn, loadingLoggedIn] = useLoggedIn();
   const [user, loadingUser] = useUser();
+  const [uid, loadingUid] = useUid();
 
   if (!loadingLoggedIn && !loggedIn) {
     return <Redirect to="/" />;
@@ -280,7 +283,27 @@ function OnboardingSwiper() {
           </Container>
         )}
       </Step>
-      <End>{(test) => <Redirect to="/" />}</End>
+      <End>
+        {(results) => {
+          const name = user.displayName;
+          const { username } = results.username;
+          const tags = results.select.tags
+            .split(',')
+            .map((item) => item.trim());
+          const rating = null;
+          const points = 0;
+          const location = null;
+          db.doc(`users/${uid}`).set({
+            name,
+            username,
+            tags,
+            rating,
+            points,
+            location,
+          });
+          return <div />;
+        }}
+      </End>
     </Onboarding>
   );
 }

@@ -1,5 +1,4 @@
 import Radar from 'radar-sdk-js';
-import { db } from './firebase/firebase.utils.js';
 
 Radar.initialize('prj_live_pk_9960fa9015ec1c672178a43fa62142afc16b6aed');
 
