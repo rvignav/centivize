@@ -32,9 +32,9 @@ const Landing = () => {
           </Link>
         </div>
       </header>
-      <div class="container text-center pt-4 pb-3">
+      <div className="container text-center pt-4 pb-3">
         <h1>Point One</h1>
-        <p class="lead">
+        <p className="lead">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
           ullam?
         </p>
