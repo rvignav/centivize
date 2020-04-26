@@ -23,9 +23,11 @@ const Post = () => {
   const { latitude, longitude } = usePosition(watch);
   const location = { lat: latitude, lng: longitude };
 
-  db.doc(`users/${uid}`).update({
-    geofence: geofence(40.5523, 43.3234, 200, 'Stores #123'),
-  });
+  (async () => {
+    db.doc(`users/${uid}`).update({
+      geofence: await geofence(40.5523, 43.3234, 200, 'Stores #123'),
+    });
+  })();
 
   if (latitude) {
     db.doc(`users/${uid}`)

@@ -273,7 +273,7 @@ function OnboardingSwiper() {
           </Container>
         )}
       </Step>
-      <End>{({ onboarding }) => <Redirect to="/app" />}</End>
+      <End>{(test) => console.log('onboarding', test)}</End>
     </Onboarding>
   );
 }
