@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import SearchInfo from "../components/SearchInfo"
 import PostFeed from "../components/PostFeed"
 
-import dummyData from "../DUMMY"
+import dummyData from "../dummyposts"
 
 export class Search extends Component {
     constructor() {
@@ -36,10 +36,10 @@ export class Search extends Component {
     render() {
         return (
             <div>
-                <div className="container-fluid search-upper">
+                <div className="container search-upper">
                     <SearchInfo sort={this.state.sort} toggleSetting={this.toggleSetting} filterTextUpdate={this.filterTextUpdate} />
                 </div>
-                <div className="container-fluid search-lower">
+                <div className="container search-lower">
                     <PostFeed posts={this.state.posts} />
                 </div>
             </div>

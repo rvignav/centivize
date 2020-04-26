@@ -95,7 +95,7 @@ export default class Home extends Component {
   render() {
     return (
       <center>
-        <div className="container-fluid">
+        <div className="container">
           <Tabs
             activeTab={{
               id: 'tab1',
