@@ -15,13 +15,13 @@ import { useFirstTime, useLoggedIn } from '../hooks/auth';
 
 const App = () => {
   const [loggedIn, loadingLoggedIn] = useLoggedIn();
-  const [firstTime, loadingUserData] = useFirstTime();
+  const [firstTime, loadingFirstTime] = useFirstTime();
 
   if (!loadingLoggedIn && !loggedIn) {
     return <Redirect to="/" />;
   }
 
-  // if (!loadingUserData && firstTime) {
+  // if (!loadingFirstTime && firstTime) { // TODO: uncomment for production
   //   return <Redirect to="/onboarding" />;
   // }
 
