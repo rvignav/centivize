@@ -5,15 +5,14 @@ import { useUid, useUser } from '../hooks/auth.js';
 
 import Header from './Header';
 
-import profilePicture from '../assets/profile-test.jpg';
 import { useUserDoc } from '../hooks/firestore';
 
 Radar.initialize('prj_live_pk_9960fa9015ec1c672178a43fa62142afc16b6aed');
 
 const Profile = () => {
   const [uid, loadingUid] = useUid();
-  const [user, loadingUser] = useUser();
-  const [userDoc, loadingUserDoc] = useUserDoc();
+  const [user] = useUser();
+  const [userDoc] = useUserDoc();
 
   if (!loadingUid) {
     Radar.setUserId(uid);
