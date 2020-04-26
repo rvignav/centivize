@@ -11,6 +11,10 @@ module.exports = {
     "jest": true,
     "node": true
   },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "rules": {
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
