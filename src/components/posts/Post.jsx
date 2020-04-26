@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import { Tabs } from '@yazanaabed/react-tabs';
 import { confirmAlert } from 'react-confirm-alert'; // Import
-import { db } from '../../firebase/firebase.utils.js';
+import firebase, { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
 import { useUid } from '../../hooks/auth.js';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -17,16 +16,16 @@ const Post = () => {
   const [year, setYear] = useState('');
   const [symptoms, setSymptoms] = useState('');
   let location;
-  let latitude;
-  let longitude;
+  let lat;
+  let lng;
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
-      location = { lat: latitude, lng: longitude };
+      lat = position.coords.latitude;
+      lng = position.coords.longitude;
+      location = { lat, lng };
       db.doc(`users/${uid}`)
-        .set({
-          location,
+        .update({
+          coordinates: new firebase.firestore.GeoPoint(lat, lng),
         })
         .then(function () {
           console.log('DONE');
@@ -59,7 +58,7 @@ const Post = () => {
     const post = value;
     let address;
     Geocode.setApiKey('AIzaSyARn00rdknaP7N9Qjzhv8duDJo1Dxkv2ZA');
-    Geocode.fromLatLng(latitude.toString(), longitude.toString()).then(
+    Geocode.fromLatLng(lat.toString(), lng.toString()).then(
       (response) => {
         address = response.results[0].formatted_address;
         db.collection(uid)
@@ -108,32 +107,30 @@ const Post = () => {
       console.log(`str: ${str}`);
       let address;
       Geocode.setApiKey('AIzaSyARn00rdknaP7N9Qjzhv8duDJo1Dxkv2ZA');
-      Geocode.fromLatLng(latitude.toString(), longitude.toString()).then(
-        (response) => {
-          address = response.results[0].formatted_address;
-          db.collection(uid)
-            .add({
-              title: 'Need treatment help',
-              message: str,
-              type: 'diagnosis',
-              _geoloc: location,
-              timePosted: new Date(),
-              address,
-            })
-            .then(function () {
-              confirmAlert({
-                title: 'Thanks for submitting.',
-                message: 'Your response has been recorded.',
-                buttons: [
-                  {
-                    label: 'OK',
-                    onClick: () => window.location.reload(),
-                  },
-                ],
-              });
+      Geocode.fromLatLng(lat.toString(), lng.toString()).then((response) => {
+        address = response.results[0].formatted_address;
+        db.collection(uid)
+          .add({
+            title: 'Need treatment help',
+            message: str,
+            type: 'diagnosis',
+            _geoloc: location,
+            timePosted: new Date(),
+            address,
+          })
+          .then(function () {
+            confirmAlert({
+              title: 'Thanks for submitting.',
+              message: 'Your response has been recorded.',
+              buttons: [
+                {
+                  label: 'OK',
+                  onClick: () => window.location.reload(),
+                },
+              ],
             });
-        },
-      );
+          });
+      });
     });
     event.preventDefault();
   };
