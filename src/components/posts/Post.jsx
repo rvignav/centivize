@@ -19,15 +19,9 @@ const Post = () => {
   const [gender, setGender] = useState('');
   const [year, setYear] = useState('');
   const [symptoms, setSymptoms] = useState('');
-  const watch = true;
+  const watch = false;
   const { latitude, longitude } = usePosition(watch);
   const location = { lat: latitude, lng: longitude };
-
-  (async () => {
-    db.doc(`users/${uid}`).update({
-      geofence: await geofence(40.5523, 43.3234, 200, 'Stores #123'),
-    });
-  })();
 
   if (latitude) {
     db.doc(`users/${uid}`)
@@ -68,6 +62,11 @@ const Post = () => {
     Geocode.fromLatLng(lat.toString(), lng.toString()).then(
       (response) => {
         address = response.results[0].formatted_address;
+        (async () => {
+          db.doc(`users/${uid}`).update({
+            geofence: await geofence(lat, lng, 24140, `${uid}#1`),
+          });
+        })();
         db.collection(`posts`)
           .add({
             title,
@@ -114,6 +113,11 @@ const Post = () => {
       let address;
       Geocode.setApiKey('AIzaSyARn00rdknaP7N9Qjzhv8duDJo1Dxkv2ZA');
       const { lat, lng } = location;
+      (async () => {
+        db.doc(`users/${uid}`).update({
+          geofence: await geofence(lat, lng, 24140, `${uid}#1`),
+        });
+      })();
       Geocode.fromLatLng(lat.toString(), lng.toString()).then((response) => {
         address = response.results[0].formatted_address;
         db.collection(`posts`)
