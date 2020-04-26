@@ -334,7 +334,6 @@ const diagnose = async (symptoms, gender, year) => {
     'Chicken skin': 549,
     Chickenpox: 81,
     'Chlamydia infection': 657,
-    'Chlamydia infection': 505,
     'Chronic inflammatory bowel disease of colon': 212,
     'Chronic muscular pain disorder': 243,
     'Chronic obstructive lung disease': 64,

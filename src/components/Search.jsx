@@ -32,7 +32,7 @@ export class Search extends Component {
     sortPosts = () => {
         let postList = this.loadPosts()
         var newPostList = postList.filter(post => {
-            return post.title == this.state.filterText
+            return post.title === this.state.filterText
         })
         this.setState({ posts: newPostList })
     }

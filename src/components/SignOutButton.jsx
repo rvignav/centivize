@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { auth } from '../firebase/firebase.utils';
 
 const SignOutButton = () => {
   const [authState, setAuthState] = useState('signed in');
 
   const signOut = async () => {
-    setAuthState(true);
+    setAuthState('signing out');
     await auth.signOut();
     setAuthState('signed out');
   };
@@ -18,7 +18,12 @@ const SignOutButton = () => {
   }
 
   return (
-    <Button variant="danger" onClick={signOut} size="lg" disabled={authState}>
+    <Button
+      variant="danger"
+      onClick={signOut}
+      size="lg"
+      disabled={authState === 'signing out'}
+    >
       {authState === 'signing out' ? 'Signing out...' : 'Sign out'}
     </Button>
   );

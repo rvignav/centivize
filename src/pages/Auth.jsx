@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Redirect } from 'react-router-dom';
-import styled from 'styled-components';
 
 import WelcomeHeader from '../components/WelcomeHeader';
 import AuthCard from '../components/AuthCard';
