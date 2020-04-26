@@ -101,6 +101,7 @@ const Post = () => {
     event.preventDefault();
   };
 
+<<<<<<< HEAD
   return (
     <center>
       <div className="container">
@@ -197,3 +198,74 @@ const Post = () => {
     </center>
   );
 };
+=======
+  render() {
+    return (
+      <center>
+        <div className="container">
+          <Tabs
+            activeTab={{
+              id: 'tab1',
+            }}
+          >
+            <Tabs.Tab id="tab1" title="Diagnosis">
+              <div className="pt-3">
+                <form onSubmit={this.handleSubmit2} className="form">
+                  <input
+                    type="text"
+                    name="gender"
+                    placeholder="Gender"
+                    className="form-control mb-2"
+                    value={this.state.gender}
+                    onChange={this.handleChange3}
+                  />
+                  <input
+                    type="text"
+                    name="year"
+                    placeholder="Year of Birth"
+                    className="form-control mb-3"
+                    value={this.state.year}
+                    onChange={this.handleChange4}
+                  />
+                  <textarea
+                    value={this.state.symptoms}
+                    onChange={this.handleChange5}
+                    placeholder="Write your symptoms, separated by commas..."
+                    className="form-control pb-5 mb-3"
+                  />
+                  <input
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Submit"
+                  />
+                </form>
+              </div>
+            </Tabs.Tab>
+            <Tabs.Tab id="tab2" title="Custom">
+              <div>
+                <form onSubmit={this.handleSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Title"
+                    className="form-control mt-3 mb-2"
+                    value={this.state.text}
+                    onChange={this.handleChange2}
+                  />
+                  <textarea
+                    value={this.state.value}
+                    className="form-control mb-3 pb-5"
+                    placeholder="Write your post here..."
+                    onChange={this.handleChange}
+                  />
+                  <input type="submit" className="btn btn-primary" value="Submit" />
+                </form>
+              </div>
+            </Tabs.Tab>
+          </Tabs>
+        </div>
+      </center>
+    );
+  }
+}
+>>>>>>> onboarding almost done
