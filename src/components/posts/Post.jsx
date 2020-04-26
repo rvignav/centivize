@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tabs } from '@yazanaabed/react-tabs';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import Geocode from 'react-geocode';
@@ -23,8 +23,10 @@ const Post = () => {
   const { latitude, longitude } = usePosition(watch);
   const location = { lat: latitude, lng: longitude };
 
+  db.doc(`users/${uid}`).update({
+    geofence: geofence(40.5523, 43.3234, 200, 'Stores #123'),
+  });
 
-  console.log(geofence(40.5523, 43.3234, 200, "Stores #123", uid));
   if (latitude) {
     db.doc(`users/${uid}`)
       .update({
@@ -64,7 +66,7 @@ const Post = () => {
     Geocode.fromLatLng(lat.toString(), lng.toString()).then(
       (response) => {
         address = response.results[0].formatted_address;
-        db.collection(uid)
+        db.collection(`posts`)
           .add({
             title,
             message: post,
@@ -94,7 +96,6 @@ const Post = () => {
   };
 
   const handleSubmit2 = (event) => {
-    const user = 'user';
     const s = symptoms.split(', ');
     for (let i = 0; i < s.length; i++) {
       s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
@@ -113,7 +114,7 @@ const Post = () => {
       const { lat, lng } = location;
       Geocode.fromLatLng(lat.toString(), lng.toString()).then((response) => {
         address = response.results[0].formatted_address;
-        db.collection(uid)
+        db.collection(`posts`)
           .add({
             title: 'Need treatment help',
             message: str,
