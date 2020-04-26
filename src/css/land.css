@@ -1,0 +1,22 @@
+header.land {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 23em;
+  max-height: 69h;
+  min-height: 50vh;
+  background-image: url('../assets/bg.jpg');
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
+}
+
+.land h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.land h1, .land h2 {
+  color: white;
+}
