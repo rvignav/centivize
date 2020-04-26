@@ -12,7 +12,7 @@ export default class CardHeader extends Component {
       <div className="card-header">
         <div className="row">
           <div className="col">
-            <h4>
+            <h4 className="font-weight-bold">
               {this.props.post.title}
               <FontAwesomeIcon
                 className="text-primary"
