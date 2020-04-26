@@ -11,9 +11,11 @@ export class ListCard extends Component {
     info.style.display = info.style.display === 'block' ? 'none' : 'block';
   };
 
-  changeVote = (id, amount) => {
-    
-  }
+  changeVote = (id, amount) => {};
+
+  // CURRENTLY:
+  // CardHeader holds Title, Author, and Date
+  // CardBody holds the message, help button, and detailed paragraph (expandable on 'Learn more')
 
   render() {
     return (
