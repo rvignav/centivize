@@ -28,4 +28,4 @@ const useFirstTime = () => {
   return [!userDoc?.exists, loading];
 };
 
-export { useLoggedIn, useFirstTime };
+export { useLoggedIn, useFirstTime, useUid };

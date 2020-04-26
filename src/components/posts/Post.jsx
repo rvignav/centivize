@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Tabs } from '@yazanaabed/react-tabs';
 import { db } from '../../firebase/firebase.utils.js';
 import diagnose from '../../diagnosis.js';
+import { useUid } from '../../hooks/auth.js';
 
 export default class Home extends Component {
   constructor(props) {
@@ -44,6 +46,8 @@ export default class Home extends Component {
   }
 
   handleSubmit(event) {
+    // const user = useUid()[0];
+    // console.log(user);
     const user = 'user';
     const title = this.state.text;
     const post = this.state.value;
@@ -55,9 +59,8 @@ export default class Home extends Component {
       .then(function () {
         alert(`Thanks for submitting! Your post has been recorded.`);
         console.log('DONE');
-        window.location.href = '../app';
+        window.location.reload();
       });
-    event.preventDefault();
   }
 
   handleSubmit2(event) {
@@ -84,7 +87,7 @@ export default class Home extends Component {
         .then(function () {
           alert(`Thanks for submitting! Your post has been recorded.`);
           console.log('DONE');
-          window.location.href = '../app';
+          window.location.reload();
         });
     });
 
