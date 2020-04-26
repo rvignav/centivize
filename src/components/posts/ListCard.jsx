@@ -21,7 +21,7 @@ export class ListCard extends Component {
               className="text-primary"
               icon={faStar}
               style={{
-                display: this.props.post.recommended ? 'inline' : 'none',
+                display: this.props.recommended ? 'inline' : 'none',
               }}
             />
           </h4>

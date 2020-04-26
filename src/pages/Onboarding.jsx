@@ -21,8 +21,8 @@ function OnboardingSwiper() {
   if (!loadingFirstTime && !firstTime) {
     return <Redirect to="/app" />;
   }
-
-  // if first time, onboarding
+  
+  // onboarding
   return (
     <Onboarding>
       <Info>
