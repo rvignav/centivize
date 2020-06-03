@@ -1,4 +1,4 @@
 # [Centivize](https://centivize.tech)
 
- Incentivizing social good with smart community crowdsourcing.
+ Incentivizing smart healthcare and social good by strengthening relationships in virtual spaces.
  Visit [https://centivize.tech](https://centivize.tech) to check it out!
