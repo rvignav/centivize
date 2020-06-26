@@ -1,7 +1,6 @@
 {
-  "short_name": "Centivize",
-  "name": "Centivize.it: incentivizing social good",
-  "description": "Incentivizes social good with smart community crowdsourcing",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
