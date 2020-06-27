@@ -46,7 +46,7 @@ export default function InputForm() {
         str += `${issues[i]}: ${treatments[i]} \n`;
       }
       console.log(`str: ${str}`);
-      $("results").text(str);
+      $("#results").text(str);
     });
   };
   return (
