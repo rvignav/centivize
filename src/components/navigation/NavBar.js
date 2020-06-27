@@ -60,11 +60,21 @@ export default function NavBar() {
               active={path.startsWith("/diagnosis")}
               to="/diagnosis"
             />
-            <NavBarItem
-              title="Contact"
-              active={path === "/contact"}
-              to="/contact"
-            />
+            <li
+              className={"nav-item mr-2"}
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
+              <a
+                href="https://centivize.tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link"
+              >
+                Centivize&nbsp;&nbsp;
+                <i className="fa fa-external-link-square"></i>
+              </a>
+            </li>
           </div>
         </div>
       </div>

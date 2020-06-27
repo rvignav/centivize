@@ -8,6 +8,8 @@ import {
 
 import ScrollToTop from "./components/other/ScrollToTop";
 import NavBar from "./components/navigation/NavBar";
+import Home from "./components/home/Home";
+import Diagnose from "./components/diagnosis/Diagnose";
 
 import "./assets/style.css";
 
@@ -17,14 +19,15 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <NavBar />
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              hello
-            </Route>
-            <Redirect to="/" />
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/diagnosis">
+            <Diagnose />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
       </Router>
     </React.StrictMode>
   );
