@@ -1,2 +1,2 @@
 # Centivize Telemedicine
-Smart Telemedicine for the individual patient.
+Smart telemedicine for the individual patient.

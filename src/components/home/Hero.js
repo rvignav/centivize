@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container">
         <h1>Centivize Telemedicine</h1>
         <h2 id="slogan">
-          <span className="text-primary">Smart Telemedicine </span>
+          <span className="text-primary">Smart telemedicine </span>
           <span className="text-white">for the individual patient.</span>
         </h2>
         {/* <!-- three buttons (all .btn-get-started, but primary button has .main-action) -->*/}
