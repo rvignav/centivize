@@ -19,6 +19,7 @@ export default function InputForm() {
   //   use form
   const [values, handleChange] = useForm({
     name: "",
+    gender: "",
     birthYear: "",
     symptoms: "",
     firstAppear: "",
