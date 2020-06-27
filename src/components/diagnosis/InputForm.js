@@ -46,6 +46,7 @@ export default function InputForm() {
         str += `${issues[i]}: ${treatments[i]} \n`;
       }
       console.log(`str: ${str}`);
+      $("results").text(str);
     });
   };
   return (
@@ -197,6 +198,7 @@ export default function InputForm() {
             </button>
           </div>
         </form>
+        <p id="results"></p>
       </div>
     </div>
   );
