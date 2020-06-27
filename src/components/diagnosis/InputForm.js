@@ -32,7 +32,7 @@ export default function InputForm() {
   let handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
-    const s = values.symptoms.split(",");
+    const s = values.symptoms.split(", ");
     for (let i = 0; i < s.length; i++) {
       s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
     }

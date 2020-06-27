@@ -700,6 +700,8 @@ const diagnose = async (symptoms, gender, year) => {
     codes.push(symptomToId[symptoms[i]]);
   }
 
+  console.log(codes);
+
   const diagnoses = [];
   const names = [];
 
