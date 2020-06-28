@@ -8,6 +8,10 @@ html {
   overflow-x: hidden;
 }
 
+:select {
+  background-color: var(--primary);
+}
+
 /*
  navigation bar 
  */
