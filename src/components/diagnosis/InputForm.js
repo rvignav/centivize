@@ -3,6 +3,7 @@ import $ from "jquery";
 
 import useForm from "./useForm";
 import diagnose from "./diagnosis";
+import { symptoms } from "./symptoms";
 
 export default function InputForm() {
   React.useEffect(() => {
@@ -79,8 +80,10 @@ export default function InputForm() {
             str
         );
       } else {
+        let symptomsStr = symptoms.join(", ");
         $("#results").html(
-          "<p class='lead text-center'>We were unable to find any matching causes and treatments. </p>"
+          `<p class='lead text-center'>We were unable to find any matching causes and treatments. </p>
+          <p class="text-justify"><b class="primary">Please make sure your symptoms are on this list: </b>${symptomsStr}.</p>`
         );
       }
     });
