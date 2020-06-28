@@ -207,7 +207,7 @@ Hero section
   -moz-background-size: cover;
   -o-background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
@@ -220,9 +220,9 @@ Hero section
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
-    height: 100vh;
+    height: 100%;
     position: relative;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 

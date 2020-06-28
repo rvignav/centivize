@@ -720,8 +720,10 @@ const diagnose = async (symptoms, gender, year) => {
   const data = await disease.json();
   for (let i = 0; i < data.length; i++) {
     const d = data[i];
-    diagnoses.push(d.Issue.ProfName);
-    names.push(d.Issue.Name);
+    if (d.Issue) {
+      diagnoses.push(d.Issue.ProfName);
+      names.push(d.Issue.Name);
+    }
   }
   const issues = [];
   names.forEach((name) => {
